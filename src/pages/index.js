@@ -22,6 +22,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import {ArrowDropDown, ArrowDropUp} from "@mui/icons-material";
+import DeleteDialog from "@/components/DeleteDialog";
+import VendorTable from "@/components/VendorTable";
+import SortMenu from "@/components/SortMenu";
+import SearchBar from "@/components/SearchBar";
+import Header from "@/components/Header";
+
 
 export default function Home() {
   const [vendors, setVendors] = useState([]);
@@ -130,14 +136,9 @@ export default function Home() {
 
   return (
     <Container>
-      <Typography
-          variant="h3"
-          component="h1"
-          sx={{my:4, textAlign: "center", color: "primary.main"}}
-          gutterBottom>
 
-        Current Vendors
-      </Typography>
+      <Header contents={"Current Vendors"} />
+
       <Box
         sx = {{
           display: 'flex',
@@ -151,131 +152,22 @@ export default function Home() {
           <Button variant="contained" color="primary" startIcon ={<AddIcon/>} size="medium"  sx={{}}>Add Vendor</Button>
         </Link>
 
-        <TextField
-          label="Search"
-          variant="outlined"
-          value={searchQuery}
-          onChange={handleSearchChange}
-          size="medium"
-          sx={{
-            mx:2,
-            flexGrow:1,
-            }}
-          slotProps={{
-            input: {
-              endAdornment: <InputAdornment position="end"> <SearchIcon /> </InputAdornment>,
-            },
-          }}
-          />
+      <SearchBar value={searchQuery} handleChange={handleSearchChange} />
 
-        {/* sort Button */}
-        <Button
-
-            variant="contained"
-            color="primary"
-            style={{}}
-            onClick={handleMenuClick}
-            size="medium"
-            sx ={{}}
-        >
-          Sort by {sortOrder === 'asc' ? <ArrowDropDown /> : <ArrowDropUp />}
-        </Button>
-      </Box>
-  {/* Sorting Dropdown */}
-      <Menu
+      <SortMenu
           anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleMenuClose}
-      >
-        <MenuItem onClick={() => handleSort('name')}>Name</MenuItem>
-        <MenuItem onClick={() => handleSort('id')}>ID</MenuItem>
-        <MenuItem onClick={() => handleSort('contact')}>Contact</MenuItem>
-        <MenuItem onClick={() => handleSort('email')}>Email</MenuItem>
-      </Menu>
+          onMenuClick={handleMenuClick}
+          onClose={handleClose}
+          onSort={handleSort}
+          sortOrder={sortOrder}
+          />
+      </Box>
 
-      <TableContainer
-          component={Paper}
-          sx = {{
-            maxHeight:600,
-          }}
-      >
-        <Table stickyHeader>
-          <TableHead>
-            <TableRow>
-              <TableCell>
-                <strong>Name</strong>
+      <VendorTable vendors={filteredVendors} onDeleteClick={(id) =>setSelectedVendorId(id)} />
 
-              </TableCell>
-              <TableCell><strong>Contact</strong></TableCell>
-              <TableCell><strong>Email</strong></TableCell>
-              <TableCell><strong>Phone</strong></TableCell>
-              <TableCell><strong>Address</strong></TableCell>
-              <TableCell><strong>ID</strong></TableCell>
-              <TableCell><strong>Actions</strong></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {filteredVendors.map((vendor) => (
-                <TableRow key={vendor.id}>
-                  <TableCell>{vendor.name}</TableCell>
-                  <TableCell>{vendor.contact}</TableCell>
-                  <TableCell>{vendor.email}</TableCell>
-                  <TableCell>{vendor.phone}</TableCell>
-                  <TableCell>{vendor.address}</TableCell>
-                  <TableCell>{vendor.id}</TableCell>
-                  <TableCell>
-                    <Link href={`/edit/${vendor.id}`} passHref>
-                      <Button
-                        variant="outlined"
-                        color="primary"
-                        size="small"
-                        style={{ marginRight: '10px' }}
-                      >
-                        Edit
-                      </Button>
-                    </Link>
-                    <IconButton
-                      color="secondary"
-                      onClick={() => handleClickOpen(vendor.id)}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
-                  </TableCell>
-                </TableRow>
-            ))}
-            {vendors.length === 0 && (
-              <TableRow>
-                <TableCell colSpan={7} align="center">
-                  No vendors available.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <DeleteDialog open={open} onClose={() => setOpen(false)} onConfirm={handleDelete} />
 
-      {/* Confirmation Dialog */}
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">{"Confirm Delete"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Are you sure you want to delete this vendor? This action cannot be undone.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleDelete} color="secondary" variant='contained' autoFocus>
-            Delete
-          </Button>
-        </DialogActions>
-      </Dialog>
+
     </Container>
   );
 }
