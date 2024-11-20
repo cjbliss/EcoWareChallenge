@@ -157,7 +157,7 @@ export default function Home() {
       <SortMenu
           anchorEl={anchorEl}
           onMenuClick={handleMenuClick}
-          onClose={handleClose}
+          onClose={handleMenuClose}
           onSort={handleSort}
           sortOrder={sortOrder}
           />
