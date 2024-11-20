@@ -16,10 +16,11 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle, Menu, MenuItem, Box, TextField,
+  DialogTitle, Menu, MenuItem, Box, TextField, InputAdornment,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import SearchIcon from '@mui/icons-material/Search';
 import {ArrowDropDown, ArrowDropUp} from "@mui/icons-material";
 
 export default function Home() {
@@ -147,7 +148,7 @@ export default function Home() {
         }}
       >
         <Link href="/add" passHref>
-          <Button variant="contained" color="primary" startIcon ={<AddIcon/>} style={{ marginBottom: '20px' }}>Add Vendor</Button>
+          <Button variant="contained" color="primary" startIcon ={<AddIcon/>} size="medium"  sx={{}}>Add Vendor</Button>
         </Link>
 
         <TextField
@@ -155,9 +156,15 @@ export default function Home() {
           variant="outlined"
           value={searchQuery}
           onChange={handleSearchChange}
+          size="medium"
           sx={{
             mx:2,
             flexGrow:1,
+            }}
+          slotProps={{
+            input: {
+              endAdornment: <InputAdornment position="end"> <SearchIcon /> </InputAdornment>,
+            },
           }}
           />
 
@@ -166,8 +173,10 @@ export default function Home() {
 
             variant="contained"
             color="primary"
-            style={{ marginBottom: '20px' }}
+            style={{}}
             onClick={handleMenuClick}
+            size="medium"
+            sx ={{}}
         >
           Sort by {sortOrder === 'asc' ? <ArrowDropDown /> : <ArrowDropUp />}
         </Button>
