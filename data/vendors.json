@@ -1,14 +1,6 @@
 [
   {
     "id": 1,
-    "name": "Acme",
-    "contact": "John Doe",
-    "email": "john@acmesupplies.com",
-    "phone": "555-1234",
-    "address": "123 Elm Street, Springfield"
-  },
-  {
-    "id": 2,
     "name": "Global Tech",
     "contact": "Jane Smith",
     "email": "jane@globaltech.com",
@@ -16,11 +8,123 @@
     "address": "456 Oak Avenue, Metropolis"
   },
   {
-    "id": 3,
-    "name": "Supply Hub",
-    "contact": "Mike Johnson",
-    "email": "mike@supplyhub.com",
+    "id": 2,
+    "name": "Tech Solutions",
+    "contact": "John Doe",
+    "email": "john@techsolutions.com",
     "phone": "555-8765",
-    "address": "789 Pine Road, Gotham"
+    "address": "123 Elm Street, Rivertown"
+  },
+  {
+    "id": 3,
+    "name": "NextGen Electronics",
+    "contact": "Alice Cooper",
+    "email": "alice@nextgenelectronics.com",
+    "phone": "555-1122",
+    "address": "789 Pine Road, Silicon Valley"
+  },
+  {
+    "id": 4,
+    "name": "Innovative Systems",
+    "contact": "Bob Green",
+    "email": "bob@innovativesystems.com",
+    "phone": "555-3344",
+    "address": "321 Maple Avenue, Tech City"
+  },
+  {
+    "id": 5,
+    "name": "PowerSource Inc.",
+    "contact": "Sophie Turner",
+    "email": "sophie@powersource.com",
+    "phone": "555-5566",
+    "address": "654 Birch Street, Greenfield"
+  },
+  {
+    "id": 6,
+    "name": "Quantum Innovations",
+    "contact": "Tom Harris",
+    "email": "tom@quantuminnovations.com",
+    "phone": "555-7788",
+    "address": "159 Oak Boulevard, Newtown"
+  },
+  {
+    "id": 7,
+    "name": "Digital Dynamics",
+    "contact": "Emily Clark",
+    "email": "emily@digitaldynamics.com",
+    "phone": "555-9900",
+    "address": "234 Cedar Lane, Highland Park"
+  },
+  {
+    "id": 8,
+    "name": "E-Tech Solutions",
+    "contact": "David Lee",
+    "email": "david@etechsolutions.com",
+    "phone": "555-2233",
+    "address": "567 Maple Street, Lakeside"
+  },
+  {
+    "id": 9,
+    "name": "Skyline Electronics",
+    "contact": "Laura Williams",
+    "email": "laura@skylineelectronics.com",
+    "phone": "555-4455",
+    "address": "890 Fir Avenue, Oceanview"
+  },
+  {
+    "id": 10,
+    "name": "TechBridge Systems",
+    "contact": "Daniel White",
+    "email": "daniel@techbridgesystems.com",
+    "phone": "555-6677",
+    "address": "678 Ash Drive, Sunset Hills"
+  },
+  {
+    "id": 11,
+    "name": "Fusion Electronics",
+    "contact": "Rachel Adams",
+    "email": "rachel@fusionelectronics.com",
+    "phone": "555-8899",
+    "address": "1010 Pine Lane, Riverview"
+  },
+  {
+    "id": 12,
+    "name": "FutureTech Corp.",
+    "contact": "Chris Johnson",
+    "email": "chris@futuretechcorp.com",
+    "phone": "555-1123",
+    "address": "213 Willow Road, Baytown"
+  },
+  {
+    "id": 13,
+    "name": "Advanced Circuits",
+    "contact": "Grace Lee",
+    "email": "grace@advancedcircuits.com",
+    "phone": "555-3345",
+    "address": "432 Oak Boulevard, Forest Hills"
+  },
+  {
+    "id": 14,
+    "name": "TechPulse Solutions",
+    "contact": "James Harris",
+    "email": "james@techpulse.com",
+    "phone": "555-5567",
+    "address": "876 Elm Street, Lakeside"
+  },
+  {
+    "id": 15,
+    "name": "Dynamic Electronics",
+    "contact": "Sophia Davis",
+    "email": "sophia@dynamicelectronics.com",
+    "phone": "555-7789",
+    "address": "345 Birch Road, Meadowbrook"
+  },
+  {
+    "name": "Toys R Us",
+    "contact": "Bob Odenkirk",
+    "email": "bo@gmail.com",
+    "phone": "234-4721",
+    "address": "40 Main St, Needham, MA",
+    "id": 17
   }
 ]
