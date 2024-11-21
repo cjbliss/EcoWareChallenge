@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 // import { DataGrid } from '@mui/x-data-grid';
 import Link from "next/link";
-import DeleteIcon from "@mui/icons-material/Delete";
+ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import theme from "../theme/theme"
 import {white} from "next/dist/lib/picocolors";
@@ -102,20 +102,28 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
             width:150,
             renderCell: (params) => (
                 <>
-                    <button
+                    {/*<Button*/}
+                    {/*    variant="outlined"*/}
+                    {/*    color="primary"*/}
+                    {/*    size="small"*/}
+                    {/*    onClick={()=>handleEdit(params.row.id)}*/}
+                    {/*    sx={{marginRight: '10px'}}*/}
+                    {/*>*/}
+                    {/*    Edit*/}
+                    {/*</Button>*/}
+                    <Button
                         onClick={() => handleEdit(params.row.id)}
                         sx={{
                             marginRight: 8,
-                            padding: '5px 10px',
+                            variant: 'outlined',
                             background: 'primary',
-                            color: 'white',
-                            border: 'none',
-                            borderRadius: 4,
+                            color: 'black',
+                            borderRadius: 3,
                         }}
                     >Edit
-                    </button>
+                    </Button>
 
-                    <button
+                    <Button
                         onClick={() => handleDelete(params.row.id)}
                         sx={{
                             marginRight: 8,
@@ -126,7 +134,7 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
                             borderRadius: 4,
                         }}
                     > <DeleteIcon />
-                    </button>
+                    </Button>
                 </>
             ),
         },

@@ -27,7 +27,9 @@ import VendorTable from "@/components/VendorTable";
 import SortMenu from "@/components/SortMenu";
 import SearchBar from "@/components/SearchBar";
 import Header from "@/components/Header";
+import LogoImage from "@/components/LogoImage"
 import {router} from "next/client";
+
 
 
 export default function Home() {
@@ -175,6 +177,7 @@ export default function Home() {
 
   return (
     <Container>
+      <LogoImage/>
 
       <Header contents={"Current Vendors"} />
 
