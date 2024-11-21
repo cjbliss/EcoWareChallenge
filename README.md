@@ -37,3 +37,8 @@ Incorporate a new feature that adds significant value to the Vendor Management S
 - Choose a Feature: Examples include vendor categorization, data export, etc.
 - Implementation: Use MUI components to build the feature, ensuring it aligns with existing design
 - Integration: Ensure the feature integrates smoothly without performance issues
+
+## Future Steps
+### Possible Todos:
+- Add dummy headers to other website sections
+- Add email, phone number, and address RegEx

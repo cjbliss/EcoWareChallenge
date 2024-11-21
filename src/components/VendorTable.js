@@ -30,35 +30,60 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
             case 'Wholesaler': return '#7ea1ff';
             case 'Retailer': return '#4bae6c';
             case 'Service': return '#ffb256';
-            case 'Independent': return '#30aeb4'
-            case 'Other': return '#a0a0a0'
+            case 'Independent': return '#30aeb4';
+            case 'Other': return '#a0a0a0';
+            case 'Select Tag': return '#848484';
         }
     }
 
     const columns = [
-        { field:'name', headerName: 'Name', flex:1 },
-        { field:'contact', headerName: 'Contact', flex:1 },
-        { field:'email', headerName: 'Email', flex:1 },
-        { field:'phone', headerName: 'Phone', flex:1 },
-        { field:'address', headerName: 'Address', flex:1 },
-        { field:'id', headerName: 'ID', flex:1 },
+        { field:'name', headerName: 'Name', flex:1 , sortable:true, filterable:true},
+        { field:'contact', headerName: 'Contact', flex:1 , sortable:true, filterable:true},
+        { field:'email', headerName: 'Email', flex:1.75, sortable: true, filterable: false},
+        { field:'phone', headerName: 'Phone', flex:1.25, sortable: true, filterable: true },
+        { field:'address', headerName: 'Address', flex:2, sortable: false, filterable: true},
+        { field:'id', headerName: 'ID', flex:1, sortable: true, filterable: false},
         {
             field:'tag',
             headerName: 'Tag',
-            flex:2,
+            flex:1,
             editable:true,
+            sortable: true,
+            filterable: true,
             renderCell: (params) => {
                 const tag = params.row.tag;
-                return (
-                    <Chip
-                        label={tag}
-                        sx={{
-                            bgcolor: getTagColor(tag),
-                            color: '#fff',
-                    }}
-                        variant='filled'
+                if(tag === ''){
+                    return (
+                        <Chip
+                            label="Select Tag"
+                            sx={{
+                                bgcolor: '#515151',
+                                color: '#fff',
+                                alignItems: 'center',
+                                overflow: 'hidden',
+                                whiteSpace: 'nowrap',
+
+                            }}
+                            variant='filled'
                         />
                     );
+                }
+                else {
+                    return (
+                        <Chip
+                            label={tag}
+                            sx={{
+                                bgcolor: getTagColor(tag),
+                                color: '#fff',
+                                alignItems: 'center',
+                                overflow: 'hidden',
+                                whiteSpace: 'nowrap',
+
+                            }}
+                            variant='filled'
+                        />
+                    );
+                }
             },
             renderEditCell: (params) => {
                 // const [selectedTag, setSelectedTag] = useState(params.value || TAG_OPTIONS[0]);
@@ -81,7 +106,7 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
                 };
                 return (
                     <Select
-                        value={params.value || TAG_OPTIONS[5]}
+                        value={params.value || 'Select Tag'}
                         onChange={handleChange}
                         fullWidth
                         variant="filled"
@@ -89,7 +114,18 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
                         >
                         {TAG_OPTIONS.map((option)=>(
                             <MenuItem key={option} value={option}>
-                                {option}
+                                <Chip
+                                    label={option}
+                                    sx={{
+                                        bgcolor: getTagColor(option),
+                                        color: '#fff',
+                                        alignItems: 'center',
+                                        overflow: 'hidden',
+                                        whiteSpace: 'nowrap',
+                                    }}
+                                    variant='filled'
+                                    />
+
                             </MenuItem>
                         ))}
                     </Select>
@@ -99,7 +135,7 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
         {
             field:'actions',
             headerName: 'Actions',
-            width:150,
+            flex: 3,
             renderCell: (params) => (
                 <>
                     {/*<Button*/}
@@ -122,14 +158,13 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
                         }}
                     >Edit
                     </Button>
-
                     <Button
                         onClick={() => handleDelete(params.row.id)}
                         sx={{
                             marginRight: 8,
                             padding: '5px 10px',
                             background: 'secondary',
-                            color: 'white',
+                            color: 'rgb(235, 0, 0)',
                             border: 'none',
                             borderRadius: 4,
                         }}
@@ -142,7 +177,12 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
 
 
     return (
-        <Box sx={{height: 625, width: '100%'}}>
+        <Box sx={{
+            height: 625,
+            width: '100%',
+            backgroundColor: 'rgba(210,210,210,.9)',
+
+        }}>
             <DataGrid
                 rows={vendors}
                 columns={columns}

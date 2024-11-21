@@ -8,8 +8,31 @@ import {
   Button,
   Box, FormControl, Select, MenuItem, InputLabel,
 } from '@mui/material';
+import InputMask from 'react-input-mask';
+import 'react-phone-number-input/style.css';
+import PhoneInput from "react-phone-number-input";
 
 const TAG_OPTIONS = ['Manufacturer', 'Wholesaler', 'Retailer','Service', 'Independent', 'Other'];
+
+const COUNTRY_OPTIONS = [
+  "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AR", "AS", "AT", "AU", "AW", "AX", "AZ",
+  "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BQ", "BR",
+  "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL",
+  "CM", "CN", "CO", "CR", "CU", "CV", "CW", "CX", "CY", "CZ", "DE", "DJ", "DK", "DM", "DO",
+  "DZ", "EC", "EE", "EG", "EH", "ER", "ES", "ET", "FI", "FJ", "FM", "FO", "FR", "GA", "GB",
+  "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GT", "GU", "GW",
+  "GY", "HK", "HN", "HR", "HT", "HU", "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS",
+  "IT", "JE", "JM", "JO", "JP", "KE", "KG", "KH", "KI", "KM", "KN", "KP", "KR", "KW", "KY",
+  "KZ", "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY", "MA", "MC", "MD",
+  "ME", "MF", "MG", "MH", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MU",
+  "MV", "MW", "MX", "MY", "MZ", "NA", "NC", "NE", "NF", "NG", "NI", "NL", "NO", "NP", "NR",
+  "NU", "NZ", "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PT", "PW",
+  "PY", "QA", "RE", "RO", "RS", "RU", "RW", "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI",
+  "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SX", "SY", "SZ", "TC", "TD",
+  "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TZ", "UA", "UG",
+  "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT",
+  "ZA", "ZM", "ZW"
+]
 
 export default function EditVendor() {
   const router = useRouter();
@@ -22,6 +45,14 @@ export default function EditVendor() {
     address: '',
     tag:'',
   });
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const [emailError, setEmailError] = useState(false);
+  const [emailHelperText, setEmailHelperText] = useState('');
+
+  const phoneRegex = /^\+?(\d{1,3})?[-.\s]?(\(?\d{3}\)?)[-.\s]?(\d{3})[-.\s]?(\d{4})$/;
+  const [phoneError, setPhoneError] = useState(false);
+  const [phoneHelperText, setPhoneHelperText] = useState('');
 
   useEffect(() => {
     if (id) {
@@ -39,11 +70,80 @@ export default function EditVendor() {
   }, [id]);
 
   const handleChange = (e) => {
-    setVendor({ ...vendor, [e.target.name]: e.target.value });
+    const {name, value} = e.target;
+    setVendor({ ...vendor, [name]: value });
+
+      if( name === 'email'){
+        if(!emailRegex.test(value)) {
+          setEmailError(true);
+          setEmailHelperText('Please enter a valid email address ');
+        }
+        // else if (name === "phone") {
+        //   // Removing any spaces and trimming the number to keep only the valid digits
+        //   const cleanedValue = value.replace(/[^0-9+()\s-]/g, '');
+        //   setVendor({
+        //     ...vendor,
+        //     [name]: cleanedValue,
+        //   });
+        // }
+        else {
+          setVendor({
+            ...vendor,
+            [name]: value,
+          });
+        }{
+          setEmailError(false);
+          setEmailHelperText('');
+        }
+      }
+    //   else if( name === 'phone'){
+    //     if(!phoneRegex.test(value)) {
+    //       setPhoneError(true);
+    //       setPhoneHelperText('Please enter a valid phone number');
+    //     } else {
+    //       setPhoneError(false);
+    //       setPhoneHelperText('');
+    //     }
+    // }
   };
+
+
+  const cleanPhoneNumber = (phone) => {
+    // Remove all spaces and dashes for storage
+    let cleaned = phone.replace(/[^0-9+]/g, '');
+
+    // Ensure the phone number follows the format +x (xxx) xxx-xxxx
+    if (cleaned.length >= 1 && cleaned.length <= 4) {
+      cleaned = cleaned.replace(/(\d{1})(\d{0,3})(\d{0,3})(\d{0,4})/, '+$1 ($2) $3-$4');
+    } else if (cleaned.length > 4 && cleaned.length <= 5) {
+      cleaned = cleaned.replace(/(\d{2})(\d{0,3})(\d{0,3})(\d{0,4})/, '+$1 ($2) $3-$4');
+    } else if (cleaned.length > 5) {
+      cleaned = cleaned.replace(/(\d{3})(\d{0,3})(\d{0,3})(\d{0,4})/, '+$1 ($2) $3-$4');
+    }
+    return cleaned;
+  };
+  // const handlePhoneChange = (value) => {
+  //   setVendor((prev) => ({...prev, [name]:value}));
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check email and phone number one more time
+    if(!emailRegex.test(vendor.email)){
+      setEmailError(true);
+      setEmailHelperText("Please enter a valid email address");
+      return;
+    }
+    // vendor.phone = cleanPhoneNumber(vendor.phone);
+    // if(!phoneRegex.test(vendor.phone)){
+    //   setPhoneError(true);
+    //   setPhoneHelperText("Please enter a valid phone number");
+    //   return;
+    // }
+
+
+
     const res = await fetch(`/api/vendors/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -59,7 +159,7 @@ export default function EditVendor() {
       <Typography variant="h4" component="h1" gutterBottom>
         Edit Vendor
       </Typography>
-      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 2 }}>
         <TextField
           margin="normal"
           required
@@ -87,7 +187,29 @@ export default function EditVendor() {
           type="email"
           value={vendor.email}
           onChange={handleChange}
+          error={emailError}
+          helperText={emailHelperText}
         />
+        {/*<InputMask*/}
+        {/*    maskChar=""*/}
+        {/*    mask={getPhoneMask(vendor.phone)}*/}
+        {/*    value={vendor.phone}*/}
+        {/*    onChange={handleChange}*/}
+        {/*    alwaysShowMask={false}*/}
+        {/*>{(inputProps) => (*/}
+        {/*  <TextField*/}
+        {/*      {...inputProps}*/}
+        {/*      label="Phone"*/}
+        {/*      fullWidth*/}
+        {/*      name="phone"*/}
+        {/*      sx={{*/}
+        {/*        marginBottom:'16px',*/}
+
+        {/*      }}*/}
+        {/*    />*/}
+        {/*    )}*/}
+
+        {/*</InputMask>*/}
         <TextField
           margin="normal"
           required
@@ -96,6 +218,8 @@ export default function EditVendor() {
           name="phone"
           value={vendor.phone}
           onChange={handleChange}
+          error={phoneError}
+          helperText={phoneHelperText}
         />
         <TextField
           margin="normal"
@@ -135,3 +259,15 @@ export default function EditVendor() {
     </Container>
   );
 }
+
+const getPhoneMask = (phone) => {
+  // If the country code is being typed
+  if (phone.length >= 1 && phone.length <= 4) {
+    return "+9 (999) 999-9999"; // Mask for country code length 1
+  } else if (phone.length > 4 && phone.length <= 5) {
+    return "+99 (999) 999-9999"; // Mask for country code length 2
+  } else if (phone.length > 5) {
+    return "+999 (999) 999-9999"; // Mask for country code length 3
+  }
+  return "+9 (999) 999-9999"; // Default mask
+};

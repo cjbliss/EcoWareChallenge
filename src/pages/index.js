@@ -29,6 +29,7 @@ import SearchBar from "@/components/SearchBar";
 import Header from "@/components/Header";
 import LogoImage from "@/components/LogoImage"
 import {router} from "next/client";
+import BackgroundImage from "@/components/BackgroundImage";
 
 
 
@@ -176,11 +177,8 @@ export default function Home() {
   };
 
   return (
-    <Container>
-      <LogoImage/>
-
-      <Header contents={"Current Vendors"} />
-
+    <Box sx={{minHeight:'100vh', position: 'relative', padding:0, margin:'0 auto', width:'75%',  }}>
+      <Header contents={"Current Vendors"} sx={{position:'relative', zIndex: 10}}/>
       <Box
         sx = {{
           display: 'flex',
@@ -188,6 +186,7 @@ export default function Home() {
           alignItems: 'center',
           mb: 2,
           gap: 2,
+          zIndex:'100',
         }}
       >
         <Link href="/add" passHref>
@@ -210,6 +209,6 @@ export default function Home() {
       <DeleteDialog open={open} onClose={() => setOpen(false)} onConfirm={handleDelete} />
 
 
-    </Container>
+    </Box>
   );
 }

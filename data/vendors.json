@@ -4,61 +4,63 @@
     "name": "Global Tech",
     "contact": "Jane Smith",
     "email": "jane@globaltech.com",
-    "phone": "555-5678",
+    "phone": "(000) 000-0000",
     "address": "456 Oak Avenue, Metropolis",
-    "tag": ""
+    "tag": "Service"
   },
   {
     "id": 2,
     "name": "Tech Solutions",
     "contact": "John Doe",
     "email": "john@techsolutions.com",
-    "phone": "555-8765",
+    "phone": "(000) 000-0000",
     "address": "123 Elm Street, Rivertown",
-    "tag": ""
+    "tag": "Retailer"
   },
   {
     "id": 3,
     "name": "NextGen Electronics",
     "contact": "Alice Cooper",
     "email": "alice@nextgenelectronics.com",
-    "phone": "555-1122",
+    "phone": "(000) 000-0000",
     "address": "789 Pine Road, Silicon Valley",
-    "tag": ""
+    "tag": "Retailer"
   },
   {
     "id": 4,
     "name": "Innovative Systems",
     "contact": "Bob Green",
     "email": "bob@innovativesystems.com",
-    "phone": "555-3344",
+    "phone": "(000) 000-0000",
     "address": "321 Maple Avenue, Tech City",
-    "tag": ""
+    "tag": "Other"
   },
   {
     "id": 5,
     "name": "PowerSource Inc.",
     "contact": "Sophie Turner",
     "email": "sophie@powersource.com",
-    "phone": "555-5566",
+    "phone": "(000) 000-0000",
     "address": "654 Birch Street, Greenfield",
-    "tags": ""
+    "tags": "",
+    "tag": "Other"
   },
   {
     "id": 6,
     "name": "Quantum Innovations",
     "contact": "Tom Harris",
     "email": "tom@quantuminnovations.com",
-    "phone": "555-7788",
+    "phone": "(000) 000-0000",
     "address": "159 Oak Boulevard, Newtown",
-    "tags": ""
+    "tags": "",
+    "tag": "Independent"
   },
   {
     "id": 7,
     "name": "Digital Dynamics",
     "contact": "Emily Clark",
     "email": "emily@digitaldynamics.com",
-    "phone": "555-9900",
+    "phone": "(000) 000-0000",
     "address": "234 Cedar Lane, Highland Park",
     "tag": "Service"
   },
@@ -67,43 +69,43 @@
     "name": "E-Tech Solutions",
     "contact": "David Leeds",
     "email": "david@etechsolutions.com",
-    "phone": "555-2233",
+    "phone": "+17812344832",
     "address": "567 Maple Street, Lakeside",
-    "tag": ""
+    "tag": "Service"
   },
   {
     "id": 9,
     "name": "Skyline Electronics",
     "contact": "Laura Williams",
     "email": "laura@skylineelectronics.com",
-    "phone": "555-4455",
+    "phone": "(000) 000-0000",
     "address": "890 Fir Avenue, Oceanview",
-    "tag": ""
+    "tag": "Other"
   },
   {
     "id": 10,
     "name": "TechBridge Systems",
     "contact": "Daniel White",
     "email": "daniel@techbridgesystems.com",
-    "phone": "555-6677",
+    "phone": "(000) 000-0000",
     "address": "678 Ash Drive, Sunset Hills",
-    "tag": ""
+    "tag": "Wholesaler"
   },
   {
     "id": 11,
     "name": "Fusion Electronics",
     "contact": "Rachel Adams",
     "email": "rachel@fusionelectronics.com",
-    "phone": "555-8899",
+    "phone": "(000) 000-0000",
     "address": "1010 Pine Lane, Riverview",
-    "tag": ""
+    "tag": "Wholesaler"
   },
   {
     "id": 12,
     "name": "FutureTech Corp.",
     "contact": "Chris Johnson",
     "email": "chris@futuretechcorp.com",
-    "phone": "555-1123",
+    "phone": "(000) 000-0000",
     "address": "213 Willow Road, Baytown",
     "tag": "Service"
   },
@@ -112,7 +114,7 @@
     "name": "Advanced Circuits",
     "contact": "Grace Lee",
     "email": "grace@advancedcircuits.com",
-    "phone": "555-3345",
+    "phone": "(000) 000-0000",
     "address": "432 Oak Boulevard, Forest Hills",
     "tag": "Retailer"
   },
@@ -121,35 +123,46 @@
     "name": "TechPulse Solutions",
     "contact": "James Harris",
     "email": "james@techpulse.com",
-    "phone": "555-5567",
+    "phone": "(000) 000-0000",
     "address": "876 Elm Street, Lakeside",
-    "tag": ""
+    "tag": "Manufacturer"
   },
   {
     "id": 15,
     "name": "Dynamic Electronics",
     "contact": "Sophia Davis",
     "email": "sophia@dynamicelectronics.com",
-    "phone": "555-7789",
+    "phone": "(000) 000-0000",
     "address": "345 Birch Road, Meadowbrook",
-    "tag": "Service"
+    "tag": "Service",
+    "": "+16172349687"
   },
   {
     "name": "Toys R Us",
     "contact": "Bob Odenkirk",
     "email": "bo@gmail.com",
-    "phone": "234-4721",
+    "phone": "(000) 000-0000",
     "address": "40 Main St, Needham, MA",
     "id": 17,
-    "tag": ""
+    "tag": "Wholesaler"
   },
   {
     "name": "Dave Matthews Band",
     "contact": "Dave Matthews",
-    "email": "dm@band.com",
-    "phone": "123-4556",
+    "email": "dksljflksdflkdsjf@mail.com",
+    "phone": "7812344721",
     "address": "165 Rugby Road, Charlottesville",
-    "tag": "Retailer",
-    "id": 18
+    "tag": "Other",
+    "id": 18,
+    "": "+8383330403124432"
+  },
+  {
+    "name": "Tech vendor",
+    "contact": "tech mman ",
+    "email": "tman@gmail.com",
+    "phone": "(000) 000-0000",
+    "address": "fldkjlksjdf",
+    "tag": "",
+    "id": 19
   }
 ]
