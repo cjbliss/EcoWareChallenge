@@ -42,3 +42,6 @@ Incorporate a new feature that adds significant value to the Vendor Management S
 ### Possible Todos:
 - Add dummy headers to other website sections
 - Add email, phone number, and address RegEx
+- Make tag have a dropdown arrow when hovering over the column 
+- Fix actions size - prob make a dropdown with the three dots
+- Fix phonwe number

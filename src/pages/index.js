@@ -190,18 +190,32 @@ export default function Home() {
         }}
       >
         <Link href="/add" passHref>
-          <Button variant="contained" color="primary" startIcon ={<AddIcon/>} size="medium"  sx={{}}>Add Vendor</Button>
+          <Button
+              variant="contained"
+              color="primary"
+              startIcon ={<AddIcon/>}
+              size="medium"
+              sx={{
+                fontSize: '0.75rem',
+                whiteSpace:'nowrap',
+                width:'auto',
+                height:'max',
+                // padding:'8px 16px'
+              }}
+          >
+            Add Vendor
+          </Button>
         </Link>
 
       <SearchBar value={searchQuery} handleChange={handleSearchChange} />
 
-      <SortMenu
-          anchorEl={anchorEl}
-          onMenuClick={handleMenuClick}
-          onClose={handleMenuClose}
-          onSort={handleSort}
-          sortOrder={sortOrder}
-          />
+      {/*<SortMenu*/}
+      {/*    anchorEl={anchorEl}*/}
+      {/*    onMenuClick={handleMenuClick}*/}
+      {/*    onClose={handleMenuClose}*/}
+      {/*    onSort={handleSort}*/}
+      {/*    sortOrder={sortOrder}*/}
+      {/*    />*/}
       </Box>
 
       <VendorTable vendors={filteredVendors} handleEdit={handleEdit} handleDelete={handleClickOpen} handleUpdateTags={handleUpdateTags} />
