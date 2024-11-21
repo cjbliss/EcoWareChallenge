@@ -6,8 +6,10 @@ import {
   Typography,
   TextField,
   Button,
-  Box,
+  Box, FormControl, Select, MenuItem, InputLabel,
 } from '@mui/material';
+
+const TAG_OPTIONS = ['Manufacturer', 'Wholesaler', 'Retailer','Service', 'Independent', 'Other'];
 
 export default function EditVendor() {
   const router = useRouter();
@@ -18,6 +20,7 @@ export default function EditVendor() {
     email: '',
     phone: '',
     address: '',
+    tag:'',
   });
 
   useEffect(() => {
@@ -103,6 +106,22 @@ export default function EditVendor() {
           value={vendor.address}
           onChange={handleChange}
         />
+        <FormControl fullWidth margin="normal">
+          <InputLabel id="tag-label">Tag</InputLabel>
+          <Select
+            label="Tag"
+            labelId="tag-label"
+            name="tag"
+            value={vendor.tag}
+            onChange={handleChange}
+            >
+            {TAG_OPTIONS.map((option)=>(
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <Button
           type="submit"
           fullWidth

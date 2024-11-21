@@ -27,6 +27,7 @@ import VendorTable from "@/components/VendorTable";
 import SortMenu from "@/components/SortMenu";
 import SearchBar from "@/components/SearchBar";
 import Header from "@/components/Header";
+import {router} from "next/client";
 
 
 export default function Home() {
@@ -44,7 +45,13 @@ export default function Home() {
   useEffect(() => {
     fetch('/api/vendors')
       .then((res) => res.json())
-      .then((data) => setVendors(data));
+      .then((data) => {
+        const updatedData = data.map((vendor) => ({
+          ...vendor,
+          tagd: Array.isArray(vendor.tags) ? vendor.tags : [],
+        }));
+        setVendors(updatedData)
+      });
   }, []);
 
   const handleSort = (column) => {
@@ -55,6 +62,10 @@ export default function Home() {
       setSortOrder('asc');
     }
   };
+
+  const handleEdit = (id) => {
+    router.push(`/edit/${id}`);
+  }
 
   const sortedVendors = [...vendors].sort((a,b) => {
     // here we will handle the sorting logic to make sure that every (relevant) field is sortable
@@ -100,6 +111,9 @@ export default function Home() {
   };
 
   const handleDelete = async () => {
+
+    // setSelectedVendorId(id);
+    // setOpen(true);
     try {
       const res = await fetch(`/api/vendors/${selectedVendorId}`, {
         method: 'DELETE',
@@ -134,6 +148,31 @@ export default function Home() {
     )
   })
 
+  const handleUpdateTags = (id, currentTag, action) => {
+    // Find the vendor by ID
+    const updatedVendors = [...filteredVendors];
+    const vendorIndex =  updatedVendors.findIndex((vendor) => vendor.id === id);
+
+    if(vendorIndex === -1) return;
+
+    const updatedTags = [...updatedVendors[vendorIndex].tags];
+    if(action === 'edit'){
+      const newTag = prompt('Enter new tag: ');
+      if(newTag && !updatedTags.includes(newTag)){
+        updatedTags.push(newTag);
+      }
+    }
+    else if (action === 'remove'){
+      const tagIndex = updatedTags.indexOf(currentTag);
+      if(tagIndex > -1){
+        updatedTags.splice(tagIndex, 1)
+      }
+    }
+
+    updatedVendors[vendorIndex].tags = updatedTags;
+    setVendors(updatedVendors);
+  };
+
   return (
     <Container>
 
@@ -163,7 +202,7 @@ export default function Home() {
           />
       </Box>
 
-      <VendorTable vendors={filteredVendors} onDeleteClick={(id) =>setSelectedVendorId(id)} />
+      <VendorTable vendors={filteredVendors} handleEdit={handleEdit} handleDelete={handleClickOpen} handleUpdateTags={handleUpdateTags} />
 
       <DeleteDialog open={open} onClose={() => setOpen(false)} onConfirm={handleDelete} />
 

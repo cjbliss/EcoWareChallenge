@@ -6,7 +6,7 @@ import {
   Typography,
   TextField,
   Button,
-  Box,
+  Box, Tooltip, IconButton,
 } from '@mui/material';
 
 export default function AddVendor() {
@@ -16,6 +16,7 @@ export default function AddVendor() {
     email: '',
     phone: '',
     address: '',
+    tag: '',
   });
 
   const router = useRouter();
@@ -88,6 +89,18 @@ export default function AddVendor() {
           value={vendor.address}
           onChange={handleChange}
         />
+        {/*<Box sx={{display:'flex', flexWrap:'wrap', gap:1}}>*/}
+        {/*  {tags.map((tag, index) => (*/}
+        {/*      <TextField*/}
+        {/*          key={index}*/}
+        {/*          variant='outlined'*/}
+        {/*          size='small'*/}
+        {/*          value={tag}*/}
+        {/*          onChange{(e) => handleTagEdit(params.row.id, index, e.target.value)}*/}
+        {/*          sx={{maxWidth:150}}*/}
+        {/*      />*/}
+        {/*  ))}*/}
+        {/*</Box>*/}
         <Button
           type="submit"
           fullWidth
