@@ -17,6 +17,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import theme from "../theme/theme"
 import {white} from "next/dist/lib/picocolors";
 import {DataGrid} from "@mui/x-data-grid";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {useState} from "react";
 
 
@@ -135,7 +136,7 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
         {
             field:'actions',
             headerName: 'Actions',
-            flex: 3,
+            flex: 'auto',
             renderCell: (params) => (
                 <>
                     {/*<Button*/}
@@ -147,29 +148,26 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
                     {/*>*/}
                     {/*    Edit*/}
                     {/*</Button>*/}
-                    <Button
+                    <IconButton
                         onClick={() => handleEdit(params.row.id)}
                         sx={{
-                            marginRight: 8,
                             variant: 'outlined',
                             background: 'primary',
                             color: 'black',
                             borderRadius: 3,
                         }}
-                    >Edit
-                    </Button>
-                    <Button
+                    > <EditIcon/>
+                    </IconButton>
+                    <IconButton
                         onClick={() => handleDelete(params.row.id)}
                         sx={{
-                            marginRight: 8,
-                            padding: '5px 10px',
                             background: 'secondary',
                             color: 'rgb(235, 0, 0)',
                             border: 'none',
                             borderRadius: 4,
                         }}
                     > <DeleteIcon />
-                    </Button>
+                    </IconButton>
                 </>
             ),
         },
@@ -180,7 +178,7 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
         <Box sx={{
             height: 625,
             width: '100%',
-            backgroundColor: 'rgba(210,210,210,.9)',
+            backgroundColor: 'rgba(210,210,210,.95)',
 
         }}>
             <DataGrid

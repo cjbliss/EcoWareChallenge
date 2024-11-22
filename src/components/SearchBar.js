@@ -20,7 +20,7 @@ export default function SearchBar({value, handleChange}) {
                 sx={{
                     mx:2,
                     flexGrow:1,
-                    width:'100%',
+                    width:'auto',
                     backgroundColor: focused ? 'rgba(210,210,210,.9)' : 'rgba(210,210,210,.5)',
                     transition: 'background-colo3 0.3s ease',
                     // '& .MuiInputLabel-root': {

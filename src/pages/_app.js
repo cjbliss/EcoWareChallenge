@@ -5,7 +5,7 @@ import '../styles/globals.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme/theme';
-import { Catamaran } from 'next/font/google';
+import { Catamaran, Knewave } from 'next/font/google';
 import Layout from "@/components/Layout";
 
 
@@ -13,6 +13,11 @@ import Layout from "@/components/Layout";
 const catamaran = Catamaran({
     subsets: ["latin"],
     weights: ['400', '500', '600', '700'],
+});
+
+const knewave = Knewave({
+    subsets: ['latin'], // Choose the character subset you need
+    weight: '400',      // Specify the weight (Knewave only supports 400)
 });
 
 export default function MyApp(props) {

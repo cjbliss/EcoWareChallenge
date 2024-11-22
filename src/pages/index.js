@@ -30,8 +30,12 @@ import Header from "@/components/Header";
 import LogoImage from "@/components/LogoImage"
 import {router} from "next/client";
 import BackgroundImage from "@/components/BackgroundImage";
+import {Mogra} from "next/font/google";
 
-
+const mogra = Mogra({
+  subsets: ['latin'], // Choose the character subset you need
+  weight: '400',      // Specify the weight (Knewave only supports 400)
+});
 
 export default function Home() {
   const [vendors, setVendors] = useState([]);
@@ -178,29 +182,65 @@ export default function Home() {
 
   return (
     <Box sx={{minHeight:'100vh', position: 'relative', padding:0, margin:'0 auto', width:'75%',  }}>
-      <Header contents={"Current Vendors"} sx={{position:'relative', zIndex: 10}}/>
+     <Box
+         sx={{textAlign:'center', width:'100%'}}
+         >
+      <h1
+          style={{
+              position:'relative',
+              zIndex: 10,
+              textAlign:'center',
+              marginTop:'35px auto',
+              color:'#1976d2',
+              fontWeight:'bold',
+              fontSize:'50px',
+              textStroke: '.25px black',
+              textShadow:'4px 4px 8px rgba(0, 0, 0, 1)',
+              backdropFilter:'blur(8px)',
+              borderRadius: '12px',
+              display:'inline-block',
+              padding:'1px 15px',
+              // width:'auto',
+              // height:'auto',
+
+          }}
+          className={mogra.className}
+      >
+        Current EcoWare Vendors
+      </h1>
+     </Box>
       <Box
         sx = {{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          mb: 2,
-          gap: 2,
-          zIndex:'100',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            mb: 2,
+            gap: 2,
+            minHeight: '60px',
+            zIndex:'100',
+            overflow:'visible'
         }}
       >
         <Link href="/add" passHref>
           <Button
               variant="contained"
               color="primary"
-              startIcon ={<AddIcon/>}
-              size="medium"
+              startIcon ={<AddIcon sx={{fontSize:'.875rem', verticalAlign:'middle'}}/>}
+              size="large"
               sx={{
-                fontSize: '0.75rem',
-                whiteSpace:'nowrap',
-                width:'auto',
-                height:'max',
-                // padding:'8px 16px'
+                  alignItems:'center',
+                  display: 'flex',
+                  fontSize: '1rem',
+                  height: 'auto',
+                  justifyContent: 'left',
+                  minWidth: '190px',
+                  padding: '8px 16px',
+                  whiteSpace: 'nowrap',
+                  width: 'fit-content',
+                  borderRadius: '7px',
+
+
+
               }}
           >
             Add Vendor
