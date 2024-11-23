@@ -8,16 +8,23 @@ export default function LogoImage() {
 
     return (
         <Box sx={{
-            position:'fixed',
-            top:'25px',
-            left:'25px',
-            zIndex:'1000',
-            padding: 0,
-            marginTop: 0,
+            position:'absolute',
+            top:0,
+            left:0,
+            zIndex:'100',
+            padding: 2,
 
         }}>
             <Image
                 src={logo} alt="Logo Top Left" width={150} height={150}
+                alt="Logo"
+                width={0}
+                height={0}
+                style={{
+                    objectFit:'contain',
+                    width:'7vw',
+                    height: 'auto',
+                }}
                 />
         </Box>
     );

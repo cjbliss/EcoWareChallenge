@@ -11,6 +11,7 @@ import {
 import InputMask from 'react-input-mask';
 import 'react-phone-number-input/style.css';
 import PhoneInput from "react-phone-number-input";
+import {Ledger} from "next/font/google";
 
 const TAG_OPTIONS = ['Manufacturer', 'Wholesaler', 'Retailer','Service', 'Independent', 'Other'];
 
@@ -33,6 +34,10 @@ const COUNTRY_OPTIONS = [
   "UM", "US", "UY", "UZ", "VA", "VC", "VE", "VG", "VI", "VN", "VU", "WF", "WS", "YE", "YT",
   "ZA", "ZM", "ZW"
 ]
+const ledger = Ledger({
+    subsets: ['latin'], // Choose the character subset you need
+    weight: '400',      // Specify the weight (Knewave only supports 400)
+});
 
 export default function EditVendor() {
   const router = useRouter();
@@ -73,11 +78,20 @@ export default function EditVendor() {
     const {name, value} = e.target;
     setVendor({ ...vendor, [name]: value });
 
-      if( name === 'email'){
-        if(!emailRegex.test(value)) {
+      if( name === 'email') {
+        if (!emailRegex.test(value)) {
           setEmailError(true);
           setEmailHelperText('Please enter a valid email address ');
+        } else {
+          setEmailError(false);
+          setEmailHelperText('');
         }
+      }
+      setVendor({
+        ...vendor,
+        [name]: value,
+      });
+
         // else if (name === "phone") {
         //   // Removing any spaces and trimming the number to keep only the valid digits
         //   const cleanedValue = value.replace(/[^0-9+()\s-]/g, '');
@@ -86,16 +100,7 @@ export default function EditVendor() {
         //     [name]: cleanedValue,
         //   });
         // }
-        else {
-          setVendor({
-            ...vendor,
-            [name]: value,
-          });
-        }{
-          setEmailError(false);
-          setEmailHelperText('');
-        }
-      }
+
     //   else if( name === 'phone'){
     //     if(!phoneRegex.test(value)) {
     //       setPhoneError(true);
@@ -135,6 +140,7 @@ export default function EditVendor() {
       setEmailHelperText("Please enter a valid email address");
       return;
     }
+
     // vendor.phone = cleanPhoneNumber(vendor.phone);
     // if(!phoneRegex.test(vendor.phone)){
     //   setPhoneError(true);
@@ -155,108 +161,172 @@ export default function EditVendor() {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" component="h1" gutterBottom>
-        Edit Vendor
-      </Typography>
-      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 2 }}>
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          label="Name"
-          name="name"
-          value={vendor.name}
-          onChange={handleChange}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          label="Contact"
-          name="contact"
-          value={vendor.contact}
-          onChange={handleChange}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          label="Email"
-          name="email"
-          type="email"
-          value={vendor.email}
-          onChange={handleChange}
-          error={emailError}
-          helperText={emailHelperText}
-        />
-        {/*<InputMask*/}
-        {/*    maskChar=""*/}
-        {/*    mask={getPhoneMask(vendor.phone)}*/}
-        {/*    value={vendor.phone}*/}
-        {/*    onChange={handleChange}*/}
-        {/*    alwaysShowMask={false}*/}
-        {/*>{(inputProps) => (*/}
-        {/*  <TextField*/}
-        {/*      {...inputProps}*/}
-        {/*      label="Phone"*/}
-        {/*      fullWidth*/}
-        {/*      name="phone"*/}
-        {/*      sx={{*/}
-        {/*        marginBottom:'16px',*/}
+      <Box
+          sx={{
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center',
+            minHeight:'100vh',
+          }}
+          >
 
-        {/*      }}*/}
-        {/*    />*/}
-        {/*    )}*/}
 
-        {/*</InputMask>*/}
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          label="Phone"
-          name="phone"
-          value={vendor.phone}
-          onChange={handleChange}
-          error={phoneError}
-          helperText={phoneHelperText}
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          label="Address"
-          name="address"
-          value={vendor.address}
-          onChange={handleChange}
-        />
-        <FormControl fullWidth margin="normal">
-          <InputLabel id="tag-label">Tag</InputLabel>
-          <Select
-            label="Tag"
-            labelId="tag-label"
-            name="tag"
-            value={vendor.tag}
-            onChange={handleChange}
-            >
-            {TAG_OPTIONS.map((option)=>(
-                <MenuItem key={option} value={option}>
-                  {option}
-                </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          sx={{ mt: 3, mb: 2 }}
+        <Box
+            sx={{
+              height: 'auto',
+              width: '70vw',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
         >
-          Update Vendor
-        </Button>
+          <h1
+              style={{
+                position: 'relative',
+                zIndex: 10,
+                textAlign: 'center',
+                marginTop: '35px auto',
+                color: '#19a7d2',
+                fontWeight: 'bold',
+                fontSize: '50px',
+                textStroke: '.25px black',
+                textShadow: '4px 4px 8px rgba(0, 0, 0, 1)',
+                backdropFilter: 'blur(8px)',
+                borderRadius: '12px',
+                display: 'inline-block',
+                padding: '1px 15px',
+                // width:'auto',
+                // height:'auto',
+
+              }}
+              className={ledger.className}
+          >
+            Edit Vendor
+          </h1>
+          <Box
+              component="form"
+              onSubmit={handleSubmit}
+              noValidate
+              sx={{
+                mt: 2,
+              }}>
+            <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Name"
+                name="name"
+                value={vendor.name}
+                onChange={handleChange}
+                sx={{
+                  backgroundColor: 'rgba(210,210,210,.95)',
+                }}
+            />
+            <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Contact"
+                name="contact"
+                value={vendor.contact}
+                onChange={handleChange}
+                sx={{
+                  backgroundColor: 'rgba(210,210,210,.95)',
+                }}
+            />
+            <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Email"
+                name="email"
+                type="email"
+                value={vendor.email}
+                onChange={handleChange}
+                error={emailError}
+                helperText={emailHelperText}
+                sx={{
+                  backgroundColor: 'rgba(210,210,210,.95)',
+                }}
+            />
+            {/*<InputMask*/}
+            {/*    maskChar=""*/}
+            {/*    mask={getPhoneMask(vendor.phone)}*/}
+            {/*    value={vendor.phone}*/}
+            {/*    onChange={handleChange}*/}
+            {/*    alwaysShowMask={false}*/}
+            {/*>{(inputProps) => (*/}
+            {/*  <TextField*/}
+            {/*      {...inputProps}*/}
+            {/*      label="Phone"*/}
+            {/*      fullWidth*/}
+            {/*      name="phone"*/}
+            {/*      sx={{*/}
+            {/*        marginBottom:'16px',*/}
+
+            {/*      }}*/}
+            {/*    />*/}
+            {/*    )}*/}
+
+            {/*</InputMask>*/}
+            <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Phone"
+                name="phone"
+                value={vendor.phone}
+                onChange={handleChange}
+                error={phoneError}
+                helperText={phoneHelperText}
+                sx={{
+                  backgroundColor: 'rgba(210,210,210,.95)',
+                }}
+            />
+            <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Address"
+                name="address"
+                value={vendor.address}
+                onChange={handleChange}
+                sx={{
+                  backgroundColor: 'rgba(210,210,210,.95)',
+                }}
+            />
+            <FormControl fullWidth margin="normal">
+              <InputLabel id="tag-label">Tag</InputLabel>
+              <Select
+                  label="Tag"
+                  labelId="tag-label"
+                  name="tag"
+                  value={vendor.tag}
+                  onChange={handleChange}
+                  sx={{
+                    backgroundColor: 'rgba(210,210,210,.95)',
+                  }}
+              >
+                {TAG_OPTIONS.map((option) => (
+                    <MenuItem key={option} value={option}>
+                      {option}
+                    </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                sx={{mt: 3, mb: 0}}
+            >
+              Update Vendor
+            </Button>
+          </Box>
+
+
+        </Box>
       </Box>
-    </Container>
   );
 }
 
