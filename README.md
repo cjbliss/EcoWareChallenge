@@ -40,8 +40,10 @@ Incorporate a new feature that adds significant value to the Vendor Management S
 
 ## Future Steps
 ### Possible Todos:
+- Add Nav bar (same vibe as below)
 - Add dummy headers to other website sections
-- Add email, phone number, and address RegEx
-- Make tag have a dropdown arrow when hovering over the column 
-- Fix actions size - prob make a dropdown with the three dots
-- Fix phonwe number
+- Make tag have a dropdown arrow when hovering over the column
+- Give each vendor an option for more info and open a popup or new page with 'notes' and filler text
+- Add email, phone number, and address RegEx // DONE
+- Fix actions size - prob make a dropdown with the three dots // DONE 
+- Fix phonwe number //DONE sort of

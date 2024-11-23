@@ -62,14 +62,14 @@
     "email": "emily@digitaldynamics.com",
     "phone": "(000) 000-0000",
     "address": "234 Cedar Lane, Highland Park",
-    "tag": "Wholesaler"
+    "tag": "Manufacturer"
   },
   {
     "id": 8,
     "name": "E-Tech Solutions",
     "contact": "David Leeds",
     "email": "david@etechsolutions.com",
-    "phone": "+17812344832",
+    "phone": "(123) 456-7890",
     "address": "567 Maple Street, Lakeside",
     "tag": "Service"
   },
@@ -105,7 +105,7 @@
     "name": "FutureTech Corp.",
     "contact": "Chris Johnson",
     "email": "chris@futuretechcorp.com",
-    "phone": "(000) 000-0000",
+    "phone": "(781) 234-4721",
     "address": "213 Willow Road, Baytown",
     "tag": "Service"
   },
@@ -113,7 +113,7 @@
     "id": 13,
     "name": "Advanced Circuits",
     "contact": "Grace Lee",
-    "email": "grace@advancedcircuits.com",
+    "email": "gracelee@advancedcircuits.com",
     "phone": "(000) 000-0000",
     "address": "432 Oak Boulevard, Forest Hills",
     "tag": "Retailer"
@@ -132,7 +132,7 @@
     "name": "Dynamic Electronics",
     "contact": "Sophia Davis",
     "email": "sophia@dynamicelectronics.com",
-    "phone": "(000) 000-0000",
+    "phone": "(871) 234-4721",
     "address": "345 Birch Road, Meadowbrook",
     "tag": "Service",
     "": "+16172349687"
@@ -164,5 +164,23 @@
     "address": "fldkjlksjdf",
     "tag": "",
     "id": 19
+  },
+  {
+    "name": "Daves Hot Chicken",
+    "contact": "Dave Hot",
+    "email": "DHC@gmail.com",
+    "phone": "(617) 716-2724",
+    "address": "1o DHC way, Needham, MA",
+    "tag": "Retailer",
+    "id": 20
+  },
+  {
+    "name": "Looney Tunes",
+    "contact": "Bugs Bunny",
+    "email": "bugs@acme.com",
+    "phone": "(999) 333-8848",
+    "address": "12 Tunes way, Acme acres, disneyland",
+    "tag": "Other",
+    "id": 21
   }
 ]
