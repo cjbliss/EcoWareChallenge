@@ -30,17 +30,22 @@ import Header from "@/components/Header";
 import LogoImage from "@/components/LogoImage"
 import {router} from "next/client";
 import BackgroundImage from "@/components/BackgroundImage";
-import {Mogra} from "next/font/google";
+import {Mogra, Ledger} from "next/font/google";
 
 const mogra = Mogra({
   subsets: ['latin'], // Choose the character subset you need
   weight: '400',      // Specify the weight (Knewave only supports 400)
+});
+const ledger = Ledger({
+    subsets: ['latin'], // Choose the character subset you need
+    weight: '400',      // Specify the weight (Knewave only supports 400)
 });
 
 export default function Home() {
   const [vendors, setVendors] = useState([]);
   const [open, setOpen] = useState(false);
   const [selectedVendorId, setSelectedVendorId] = useState(null);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [sortBy, setSortBy] = useState('name'); // default to name
@@ -74,6 +79,10 @@ export default function Home() {
     router.push(`/edit/${id}`);
   }
 
+  const handleInfo = (id) => {
+      router.push(`/vendors/${id}`);
+  }
+
   const sortedVendors = [...vendors].sort((a,b) => {
     // here we will handle the sorting logic to make sure that every (relevant) field is sortable
     if(sortBy === 'name'){
@@ -105,6 +114,16 @@ export default function Home() {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+  }
+
+  const handleOpenDialog = (vendor) => {
+      setSelectedVendorId(vendor);
+      setOpenDialog(true);
+  }
+
+  const handleCloseDialog = ()=> {
+      setOpenDialog(false);
+      setSelectedVendorId(null);
   }
 
   const handleClickOpen = (id) => {
@@ -195,8 +214,8 @@ export default function Home() {
               fontWeight:'bold',
               fontSize:'50px',
               textStroke: '.25px black',
-              textShadow:'4px 4px 8px rgba(0, 0, 0, 1)',
-              backdropFilter:'blur(8px)',
+              // textShadow:'4px 4px 8px rgba(0, 0, 0, 1)',
+              backdropFilter:'blur(50px)',
               borderRadius: '12px',
               display:'inline-block',
               padding:'1px 15px',
@@ -204,7 +223,7 @@ export default function Home() {
               // height:'auto',
 
           }}
-          className={mogra.className}
+          className={ledger.className}
       >
         Current EcoWare Vendors
       </h1>
@@ -238,9 +257,6 @@ export default function Home() {
                   whiteSpace: 'nowrap',
                   width: 'fit-content',
                   borderRadius: '7px',
-
-
-
               }}
           >
             Add Vendor
@@ -258,7 +274,7 @@ export default function Home() {
       {/*    />*/}
       </Box>
 
-      <VendorTable vendors={filteredVendors} handleEdit={handleEdit} handleDelete={handleClickOpen} handleUpdateTags={handleUpdateTags} />
+      <VendorTable vendors={filteredVendors} handleEdit={handleEdit} handleDelete={handleClickOpen} handleUpdateTags={handleUpdateTags} handleInfo={handleInfo} />
 
       <DeleteDialog open={open} onClose={() => setOpen(false)} onConfirm={handleDelete} />
 

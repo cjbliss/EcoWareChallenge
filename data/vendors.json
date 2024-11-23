@@ -6,7 +6,8 @@
     "email": "jane@globaltech.com",
     "phone": "(000) 000-0000",
     "address": "456 Oak Avenue, Metropolis",
-    "tag": "Service"
+    "tag": "Service",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "email": "john@techsolutions.com",
     "phone": "(000) 000-0000",
     "address": "123 Elm Street, Rivertown",
-    "tag": "Retailer"
+    "tag": "Retailer",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "email": "alice@nextgenelectronics.com",
     "phone": "(000) 000-0000",
     "address": "789 Pine Road, Silicon Valley",
-    "tag": "Retailer"
+    "tag": "Retailer",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "email": "bob@innovativesystems.com",
     "phone": "(000) 000-0000",
     "address": "321 Maple Avenue, Tech City",
-    "tag": "Other"
+    "tag": "Other",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 5,
@@ -42,8 +46,8 @@
     "email": "sophie@powersource.com",
     "phone": "(000) 000-0000",
     "address": "654 Birch Street, Greenfield",
-    "tags": "",
-    "tag": "Other"
+    "tag": "Other",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 6,
@@ -52,8 +56,8 @@
     "email": "tom@quantuminnovations.com",
     "phone": "(000) 000-0000",
     "address": "159 Oak Boulevard, Newtown",
-    "tags": "",
-    "tag": "Independent"
+    "tag": "Independent",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 7,
@@ -62,7 +66,8 @@
     "email": "emily@digitaldynamics.com",
     "phone": "(000) 000-0000",
     "address": "234 Cedar Lane, Highland Park",
-    "tag": "Manufacturer"
+    "tag": "Manufacturer",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 8,
@@ -71,7 +76,8 @@
     "email": "david@etechsolutions.com",
     "phone": "(123) 456-7890",
     "address": "567 Maple Street, Lakeside",
-    "tag": "Service"
+    "tag": "Wholesaler",
+    "additionalInfo": "Here is some extra info about the vendor. Our contact is David Leeds. "
   },
   {
     "id": 9,
@@ -80,7 +86,8 @@
     "email": "laura@skylineelectronics.com",
     "phone": "(000) 000-0000",
     "address": "890 Fir Avenue, Oceanview",
-    "tag": "Other"
+    "tag": "Other",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 10,
@@ -89,7 +96,8 @@
     "email": "daniel@techbridgesystems.com",
     "phone": "(000) 000-0000",
     "address": "678 Ash Drive, Sunset Hills",
-    "tag": "Wholesaler"
+    "tag": "Wholesaler",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 11,
@@ -98,7 +106,8 @@
     "email": "rachel@fusionelectronics.com",
     "phone": "(000) 000-0000",
     "address": "1010 Pine Lane, Riverview",
-    "tag": "Wholesaler"
+    "tag": "Wholesaler",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 12,
@@ -107,7 +116,8 @@
     "email": "chris@futuretechcorp.com",
     "phone": "(781) 234-4721",
     "address": "213 Willow Road, Baytown",
-    "tag": "Service"
+    "tag": "Service",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 13,
@@ -116,7 +126,8 @@
     "email": "gracelee@advancedcircuits.com",
     "phone": "(000) 000-0000",
     "address": "432 Oak Boulevard, Forest Hills",
-    "tag": "Retailer"
+    "tag": "Retailer",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 14,
@@ -125,7 +136,8 @@
     "email": "james@techpulse.com",
     "phone": "(000) 000-0000",
     "address": "876 Elm Street, Lakeside",
-    "tag": "Manufacturer"
+    "tag": "Manufacturer",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 15,
@@ -135,7 +147,7 @@
     "phone": "(871) 234-4721",
     "address": "345 Birch Road, Meadowbrook",
     "tag": "Service",
-    "": "+16172349687"
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "name": "Toys R Us",
@@ -144,7 +156,8 @@
     "phone": "(000) 000-0000",
     "address": "40 Main St, Needham, MA",
     "id": 17,
-    "tag": "Wholesaler"
+    "tag": "Wholesaler",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "name": "Dave Matthews Band",
@@ -154,7 +167,7 @@
     "address": "165 Rugby Road, Charlottesville",
     "tag": "Manufacturer",
     "id": 18,
-    "": "+8383330403124432"
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "name": "Tech vendor",
@@ -163,16 +176,18 @@
     "phone": "(000) 000-0000",
     "address": "fldkjlksjdf",
     "tag": "",
-    "id": 19
+    "id": 19,
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "name": "Daves Hot Chicken",
     "contact": "Dave Hot",
     "email": "DHC@gmail.com",
     "phone": "(617) 716-2724",
-    "address": "1o DHC way, Needham, MA",
+    "address": "10 DHC way, Needham, MA",
     "tag": "Retailer",
-    "id": 20
+    "id": 20,
+    "additionalInfo": "Here is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendor."
   },
   {
     "name": "Looney Tunes",
@@ -181,6 +196,7 @@
     "phone": "(999) 333-8848",
     "address": "12 Tunes way, Acme acres, disneyland",
     "tag": "Other",
-    "id": 21
+    "id": 21,
+    "additionalInfo": "Here is some extra info about the vendor."
   }
 ]

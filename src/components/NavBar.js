@@ -23,11 +23,6 @@ export default function NavBar() {
                         </Link>
                     </Button>
                     <Button color='inherit'>
-                        <Link href="/add" style={{textDecoration: 'none', color: 'black'}}>
-                            Add Vendor
-                        </Link>
-                    </Button>
-                    <Button color='inherit'>
                         <Link href="/about" style={{textDecoration: 'none', color: 'black'}}>
                             About
                         </Link>

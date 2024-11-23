@@ -40,10 +40,15 @@ Incorporate a new feature that adds significant value to the Vendor Management S
 
 ## Future Steps
 ### Possible Todos:
-- Add Nav bar (same vibe as below) // ADDED - EDIT PAGES
-- Add dummy headers to other website sections 
 - Make tag have a dropdown arrow when hovering over the column
-- Give each vendor an option for more info and open a popup or new page with 'notes' and filler text
+- Make additional info field in vendor info page editable for ease
+- Fix header fonts
+- Add Gap between header and nav bar
+- Possibly restrict phone numbers
+- Check Iphone compatibility
+- Add Nav bar (same vibe as below) // DONE
+- Add dummy headers to other website sections // DONE
+- Give each vendor an option for more info and open a popup or new page with 'notes' and filler text // DONE
 - Add email, phone number, and address RegEx // DONE
 - Fix actions size - prob make a dropdown with the three dots // DONE 
-- Fix phonwe number //DONE sort of
+- Fix phone number //DONE sort of

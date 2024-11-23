@@ -22,7 +22,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {useState} from "react";
 
 
-export default function VendorTable({vendors, handleEdit, handleDelete, handleUpdateTags}) {
+export default function VendorTable({vendors, handleEdit, handleDelete, handleUpdateTags, handleInfo}) {
 
     const TAG_OPTIONS = ['Manufacturer', 'Wholesaler', 'Retailer','Service', 'Independent', 'Other'];
 
@@ -44,11 +44,11 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
         { field:'email', headerName: 'Email', flex:1.75, sortable: true, filterable: false},
         { field:'phone', headerName: 'Phone', flex:1.25, sortable: true, filterable: true },
         { field:'address', headerName: 'Address', flex:2, sortable: false, filterable: true},
-        { field:'id', headerName: 'ID', flex:1, sortable: true, filterable: false},
+        { field:'id', headerName: 'ID', flex:"auto", sortable: true, filterable: false},
         {
             field:'tag',
-            headerName: 'Tag',
-            flex:1,
+            headerName: 'Vendor Type',
+            flex:.82,
             editable:true,
             sortable: true,
             filterable: true,
@@ -57,7 +57,7 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
                 if(tag === ''){
                     return (
                         <Chip
-                            label="Select Tag"
+                            label="Select Vendor Type"
                             sx={{
                                 bgcolor: '#515151',
                                 color: '#fff',
@@ -137,20 +137,28 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
         {
             field:'actions',
             headerName: 'Actions',
-            flex: 'auto',
+            flex: 1,
             renderCell: (params) => (
-                <>
+                <Box
+                    sx={{
+                        flex:1,
+                        justifyContent: 'space-around',
+                        gap:1,
+                        width:'100%',
+                    }}
+                >
 
-                    {/*<IconButton*/}
-                    {/*    onClick={() => handleEdit(params.row.id)}*/}
-                    {/*    sx={{*/}
-                    {/*        variant: 'outlined',*/}
-                    {/*        background: 'primary',*/}
-                    {/*        color: 'black',*/}
-                    {/*        borderRadius: 3,*/}
-                    {/*    }}*/}
-                    {/*> <InfoIcon/>*/}
-                    {/*</IconButton>*/}
+                    <IconButton
+                        onClick={() => handleInfo(params.row.id)}
+                        sx={{
+                            variant: 'outlined',
+                            background: 'primary',
+                            color: 'white',
+                            borderRadius: 3,
+                            flex:1,
+                        }}
+                    > <InfoIcon/>
+                    </IconButton>
                     <IconButton
                         onClick={() => handleEdit(params.row.id)}
                         sx={{
@@ -158,6 +166,7 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
                             background: 'primary',
                             color: 'black',
                             borderRadius: 3,
+                            flex:1,
                         }}
                     > <EditIcon/>
                     </IconButton>
@@ -168,10 +177,11 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
                             color: 'rgb(235, 0, 0)',
                             border: 'none',
                             borderRadius: 4,
+                            flex:1,
                         }}
                     > <DeleteIcon />
                     </IconButton>
-                </>
+                </Box>
             ),
         },
     ];
@@ -225,7 +235,6 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
                     },
                 }}
                 pageSizeOptions={[10,25,50]}
-
             />
         </Box>
         </Box>

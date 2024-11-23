@@ -34,6 +34,8 @@ export default function AddVendor() {
         phone: '',
         address: '',
         tag:'',
+        additionalInfo: '',
+
     });
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -415,9 +417,9 @@ export default function AddVendor() {
                             },
                         },
                     }}>
-                        <InputLabel id="tag-label">Tag</InputLabel>
+                        <InputLabel id="tag-label">Vendor Type</InputLabel>
                         <Select
-                            label="Tag"
+                            label="Vendor Type"
                             labelId="tag-label"
                             name="tag"
                             value={vendor.tag}
@@ -433,6 +435,36 @@ export default function AddVendor() {
                             ))}
                         </Select>
                     </FormControl>
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        label="Additional Info (Optional)"
+                        name="additionalInfo"
+                        value={vendor.additionalInfo}
+                        onChange={handleChange}
+                        sx={{
+                            backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -4px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
+                        }}
+                    />
                     <Button
                         type="submit"
                         fullWidth
@@ -449,121 +481,3 @@ export default function AddVendor() {
         </Box>
     );
 }
-
-
-// // pages/add.js
-// import { useState } from 'react';
-// import { useRouter } from 'next/router';
-// import {
-//   Container,
-//   Typography,
-//   TextField,
-//   Button,
-//   Box, Tooltip, IconButton,
-// } from '@mui/material';
-//
-// export default function AddVendor() {
-//   const [vendor, setVendor] = useState({
-//     name: '',
-//     contact: '',
-//     email: '',
-//     phone: '',
-//     address: '',
-//     tag: '',
-//   });
-//
-//   const router = useRouter();
-//
-//   const handleChange = (e) => {
-//     setVendor({ ...vendor, [e.target.name]: e.target.value });
-//   };
-//
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     const res = await fetch('/api/vendors', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(vendor),
-//     });
-//     if (res.ok) {
-//       router.push('/');
-//     }
-//   };
-//
-//   return (
-//     <Container maxWidth="sm">
-//       <Typography variant="h4" component="h1" gutterBottom>
-//         Add New Vendor
-//       </Typography>
-//       <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-//         <TextField
-//           margin="normal"
-//           required
-//           fullWidth
-//           label="Name"
-//           name="name"
-//           value={vendor.name}
-//           onChange={handleChange}
-//         />
-//         <TextField
-//           margin="normal"
-//           required
-//           fullWidth
-//           label="Contact"
-//           name="contact"
-//           value={vendor.contact}
-//           onChange={handleChange}
-//         />
-//         <TextField
-//           margin="normal"
-//           required
-//           fullWidth
-//           label="Email"
-//           name="email"
-//           type="email"
-//           value={vendor.email}
-//           onChange={handleChange}
-//         />
-//         <TextField
-//           margin="normal"
-//           required
-//           fullWidth
-//           label="Phone"
-//           name="phone"
-//           value={vendor.phone}
-//           onChange={handleChange}
-//         />
-//         <TextField
-//           margin="normal"
-//           required
-//           fullWidth
-//           label="Address"
-//           name="address"
-//           value={vendor.address}
-//           onChange={handleChange}
-//         />
-//         {/*<Box sx={{display:'flex', flexWrap:'wrap', gap:1}}>*/}
-//         {/*  {tags.map((tag, index) => (*/}
-//         {/*      <TextField*/}
-//         {/*          key={index}*/}
-//         {/*          variant='outlined'*/}
-//         {/*          size='small'*/}
-//         {/*          value={tag}*/}
-//         {/*          onChange{(e) => handleTagEdit(params.row.id, index, e.target.value)}*/}
-//         {/*          sx={{maxWidth:150}}*/}
-//         {/*      />*/}
-//         {/*  ))}*/}
-//         {/*</Box>*/}
-//         <Button
-//           type="submit"
-//           fullWidth
-//           variant="contained"
-//           color="primary"
-//           sx={{ mt: 3, mb: 2 }}
-//         >
-//           Add Vendor
-//         </Button>
-//       </Box>
-//     </Container>
-//   );
-// }

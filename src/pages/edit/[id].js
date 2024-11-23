@@ -34,6 +34,8 @@ export default function EditVendor() {
         phone: '',
         address: '',
         tag:'',
+        additionalInfo: '',
+
     });
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -367,9 +369,9 @@ export default function EditVendor() {
                             },
                         },
                     }}>
-                        <InputLabel id="tag-label">Tag</InputLabel>
+                        <InputLabel id="tag-label">Vendor Type</InputLabel>
                         <Select
-                            label="Tag"
+                            label="Vendor Type"
                             labelId="tag-label"
                             name="tag"
                             value={vendor.tag}
@@ -385,6 +387,36 @@ export default function EditVendor() {
                             ))}
                         </Select>
                     </FormControl>
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        label="Additional Info (Optional)"
+                        name="additionalInfo"
+                        value={vendor.additionalInfo}
+                        onChange={handleChange}
+                        sx={{
+                            backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -4px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
+                        }}
+                    />
                     <Button
                         type="submit"
                         fullWidth
