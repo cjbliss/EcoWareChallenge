@@ -23,11 +23,24 @@ export default function SearchBar({value, handleChange}) {
                     width:'auto',
                     backgroundColor: focused ? 'rgba(210,210,210,.9)' : 'rgba(210,210,210,.5)',
                     transition: 'background-colo3 0.3s ease',
-                    // '& .MuiInputLabel-root': {
-                    //     transition: 'all 0.2s ease', // Smooth transition for the label
-                    //     zIndex: 15, // Ensure the label is above the input
-                    // },
-
+                    '& .MuiInputLabel-root': {
+                        transform: 'translate(15px, 17px) scale(1)',
+                        transition: 'all 0.2s ease-in-out',
+                    },
+                    '& .MuiInputLabel-shrink': {
+                        transform: 'translate(14px, -3px) scale(0.6)', // Adjust the position when it floats
+                    },
+                    '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                            borderColor: 'rgba(0, 0, 0, 0.23)',
+                        },
+                        '&:hover fieldset': {
+                            borderColor: '#19a7d2', // Optional: change color on hover
+                        },
+                        '&.Mui-focused fieldset': {
+                            borderColor: '#19a7d2', // Optional: change color on focus
+                        },
+                    },
 
                 }}
                 onFocus={() => setFocused(true)}

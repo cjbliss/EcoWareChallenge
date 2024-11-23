@@ -200,6 +200,24 @@ export default function EditVendor() {
                         onChange={handleChange}
                         sx={{
                             backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -3px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
                         }}
                     />
                     <TextField
@@ -212,6 +230,24 @@ export default function EditVendor() {
                         onChange={handleChange}
                         sx={{
                             backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -3px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
                         }}
                     />
                     <TextField
@@ -227,6 +263,24 @@ export default function EditVendor() {
                         helperText={emailHelperText}
                         sx={{
                             backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -3px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
                         }}
                     />
                     <TextField
@@ -242,40 +296,26 @@ export default function EditVendor() {
                         helperText={phoneHelperText}
                         sx={{
                             backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -3px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
                         }}
                     />
-                    {/*<Box sx={{ mt: 2 }}>*/}
-                    {/*    <TextField*/}
-                    {/*        label="Phone"*/}
-                    {/*        fullWidth*/}
-                    {/*        InputProps={{*/}
-                    {/*            inputComponent: (props) => (*/}
-                    {/*                <PhoneInput*/}
-                    {/*                    country="us"*/}
-                    {/*                    value={vendor.phone}*/}
-                    {/*                    onChange={handlePhoneChange}*/}
-                    {/*                    inputStyle={{*/}
-                    {/*                        width: "100%",*/}
-                    {/*                        height: "56px",*/}
-                    {/*                        border: "none",*/}
-                    {/*                        background: "none",*/}
-                    {/*                        fontSize: "1rem",*/}
-                    {/*                    }}*/}
-                    {/*                    buttonStyle={{*/}
-                    {/*                        backgroundColor: "transparent",*/}
-                    {/*                        border: "none",*/}
-                    {/*                        borderRight: "1px solid rgba(0, 0, 0, 0.23)",*/}
-                    {/*                        padding: "0 12px",*/}
-                    {/*                    }}*/}
-                    {/*                    {...props}*/}
-                    {/*                />*/}
-                    {/*            ),*/}
-                    {/*        }}*/}
-                    {/*        sx={{*/}
-                    {/*            backgroundColor: "rgba(210, 210, 210, 0.95)",*/}
-                    {/*        }}*/}
-                    {/*    />*/}
-                    {/*</Box>*/}
                     <TextField
                         margin="normal"
                         required
@@ -286,9 +326,47 @@ export default function EditVendor() {
                         onChange={handleChange}
                         sx={{
                             backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -3px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
                         }}
                     />
-                    <FormControl fullWidth margin="normal">
+                    <FormControl fullWidth margin="normal" sx={{
+                        backgroundColor: 'rgba(210,210,210,.95)',
+                        '& .MuiInputLabel-root': {
+                            transform: 'translate(15px, 17px) scale(1)',
+                            transition: 'all 0.2s ease-in-out',
+                        },
+                        '& .MuiInputLabel-shrink': {
+                            transform: 'translate(14px, -3px) scale(0.6)', // Adjust the position when it floats
+                        },
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: 'rgba(0, 0, 0, 0.23)',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: '#19a7d2', // Optional: change color on hover
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#19a7d2', // Optional: change color on focus
+                            },
+                        },
+                    }}>
                         <InputLabel id="tag-label">Tag</InputLabel>
                         <Select
                             label="Tag"

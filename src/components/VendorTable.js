@@ -12,11 +12,12 @@ import {
 } from "@mui/material";
 // import { DataGrid } from '@mui/x-data-grid';
 import Link from "next/link";
- import DeleteIcon from "@mui/icons-material/Delete";
+import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import InfoIcon from '@mui/icons-material/Info';
 import theme from "../theme/theme"
 import {white} from "next/dist/lib/picocolors";
-import {DataGrid} from "@mui/x-data-grid";
+import {DataGrid, GridToolbar} from "@mui/x-data-grid";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {useState} from "react";
 
@@ -139,15 +140,17 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
             flex: 'auto',
             renderCell: (params) => (
                 <>
-                    {/*<Button*/}
-                    {/*    variant="outlined"*/}
-                    {/*    color="primary"*/}
-                    {/*    size="small"*/}
-                    {/*    onClick={()=>handleEdit(params.row.id)}*/}
-                    {/*    sx={{marginRight: '10px'}}*/}
-                    {/*>*/}
-                    {/*    Edit*/}
-                    {/*</Button>*/}
+
+                    {/*<IconButton*/}
+                    {/*    onClick={() => handleEdit(params.row.id)}*/}
+                    {/*    sx={{*/}
+                    {/*        variant: 'outlined',*/}
+                    {/*        background: 'primary',*/}
+                    {/*        color: 'black',*/}
+                    {/*        borderRadius: 3,*/}
+                    {/*    }}*/}
+                    {/*> <InfoIcon/>*/}
+                    {/*</IconButton>*/}
                     <IconButton
                         onClick={() => handleEdit(params.row.id)}
                         sx={{
@@ -175,8 +178,22 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
 
 
     return (
+
+        <Box
+            sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: '8px 16px',
+                borderBottom: '1px solid #ccc',
+                position: 'sticky',
+                top: 0,
+                zIndex: 2,
+            }}
+        >
+
         <Box sx={{
-            height: 625,
+            height: 'auto',
             width: '100%',
             backgroundColor: 'rgba(210,210,210,.95)',
 
@@ -189,6 +206,19 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
                 initialState={{
                     pagination: { paginationModel: { pageSize: 10 } },
                 }}
+                components={{
+                    Toolbar: GridToolbar,
+                }}
+                componentsProps={{
+                    toolbar: {
+                        sx: {
+                            position: 'sticky',
+                            top: 0,
+                            zIndex: 100,
+                            backgroundColor: 'white',
+                        },
+                    },
+                }}
                 sx={{
                     '&.MuiDataGrid-cell': {
                         fontSize: '0.875rem',
@@ -198,97 +228,8 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
 
             />
         </Box>
+        </Box>
     );
 }
 
-    //     <TableContainer
-    //     component={Paper}
-    //     sx={{
-    //         maxHeight: 600,
-    //     }}
-    // >
-    //     <Table stickyHeader>
-    //         <TableHead>
-    //             <TableRow>
-    //                 <TableCell>
-    //                     <strong>Name</strong>
-    //
-    //                 </TableCell>
-    //                 <TableCell><strong>Contact</strong></TableCell>
-    //                 <TableCell><strong>Email</strong></TableCell>
-    //                 <TableCell><strong>Phone</strong></TableCell>
-    //                 <TableCell><strong>Address</strong></TableCell>
-    //                 <TableCell><strong>ID</strong></TableCell>
-    //                 <TableCell><strong>Actions</strong></TableCell>
-    //             </TableRow>
-    //         </TableHead>
-    //         <TableBody>
-    //             {vendors.map((vendor) => (
-    //                 <TableRow key={vendor.id}>
-    //                     <TableCell>{vendor.name}</TableCell>
-    //                     <TableCell>{vendor.contact}</TableCell>
-    //                     <TableCell>{vendor.email}</TableCell>
-    //                     <TableCell>{vendor.phone}</TableCell>
-    //                     <TableCell>{vendor.address}</TableCell>
-    //                     <TableCell>{vendor.id}</TableCell>
-    //                     <TableCell>
-    //                         <Link href={`/edit/${vendor.id}`} passHref>
-    //                             <Button
-    //                                 variant="outlined"
-    //                                 color="primary"
-    //                                 size="small"
-    //                                 style={{marginRight: '10px'}}
-    //                             >
-    //                                 Edit
-    //                             </Button>
-    //                         </Link>
-    //                         <IconButton color="secondary" onClick={() => onDeleteClick(vendor.id)}>
-    //                             <DeleteIcon/>
-    //                         </IconButton>
-    //                     </TableCell>
-    //                 </TableRow>
-    //             ))}
-    //             {vendors.length === 0 && (
-    //                 <TableRow>
-    //                     <TableCell colSpan={7} align="center">
-    //                         No vendors available.
-    //                     </TableCell>
-    //                 </TableRow>
-    //             )}
-    //         </TableBody>
-    //     </Table>
-    // </TableContainer>
 
-    // const [open, setOpen] = useState(false);
-    // const [selectedVendorId, setSelectedVendorId] = useState(null);
-    //
-    // const handleClickOpen = (id) => {
-    //     setSelectedVendorId(id);
-    //     setOpen(true);
-    // };
-    //
-    // const handleClose = () =>
-    // {
-    //     setOpen(false);
-    //     setSelectedVendorId(null);
-    // }
-    //
-    // const handleDelete = async () => {
-    //     try {
-    //         const res = await fetch(`/api/vendors/${selectedVendorId}`, {
-    //             method: 'DELETE',
-    //         });
-    //
-    //         if (res.ok) {
-    //             // Remove the deleted vendor from the state
-    //             setVendors(vendors.filter((vendor) => vendor.id !== selectedVendorId));
-    //             handleClose();
-    //         } else {
-    //             console.error('Failed to delete the vendor.');
-    //             // Optionally, handle error states here
-    //         }
-    //     } catch (error) {
-    //         console.error('An error occurred while deleting the vendor:', error);
-    //         // Optionally, handle error states here
-    //     }
-    // }

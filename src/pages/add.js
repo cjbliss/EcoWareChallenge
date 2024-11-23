@@ -24,7 +24,7 @@ const ledger = Ledger({
     weight: '400',      // Specify the weight (Knewave only supports 400)
 });
 
-export default function EditVendor() {
+export default function AddVendor() {
     const router = useRouter();
     const { id } = router.query;
     const [vendor, setVendor] = useState({
@@ -216,6 +216,24 @@ export default function EditVendor() {
                         onChange={handleChange}
                         sx={{
                             backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -4px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
                         }}
                     />
                     <TextField
@@ -228,6 +246,24 @@ export default function EditVendor() {
                         onChange={handleChange}
                         sx={{
                             backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -4px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
                         }}
                     />
                     <TextField
@@ -243,6 +279,24 @@ export default function EditVendor() {
                         helperText={emailHelperText}
                         sx={{
                             backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -4px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
                         }}
                     />
                     <TextField
@@ -258,6 +312,24 @@ export default function EditVendor() {
                         helperText={phoneHelperText}
                         sx={{
                             backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -4px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
                         }}
                     />
                     {/*<Box sx={{ mt: 2 }}>*/}
@@ -302,9 +374,47 @@ export default function EditVendor() {
                         onChange={handleChange}
                         sx={{
                             backgroundColor: 'rgba(210,210,210,.95)',
+                            '& .MuiInputLabel-root': {
+                                transform: 'translate(15px, 17px) scale(1)',
+                                transition: 'all 0.2s ease-in-out',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                                transform: 'translate(14px, -4px) scale(0.6)', // Adjust the position when it floats
+                            },
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#19a7d2', // Optional: change color on focus
+                                },
+                            },
                         }}
                     />
-                    <FormControl fullWidth margin="normal">
+                    <FormControl fullWidth margin="normal" sx={{
+                        backgroundColor: 'rgba(210,210,210,.95)',
+                        '& .MuiInputLabel-root': {
+                            transform: 'translate(15px, 17px) scale(1)',
+                            transition: 'all 0.2s ease-in-out',
+                        },
+                        '& .MuiInputLabel-shrink': {
+                            transform: 'translate(14px, -2px) scale(0.6)', // Adjust the position when it floats
+                        },
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: 'rgba(0, 0, 0, 0.23)',
+                            },
+                            '&:hover fieldset': {
+                                borderColor: '#19a7d2', // Optional: change color on hover
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#19a7d2', // Optional: change color on focus
+                            },
+                        },
+                    }}>
                         <InputLabel id="tag-label">Tag</InputLabel>
                         <Select
                             label="Tag"

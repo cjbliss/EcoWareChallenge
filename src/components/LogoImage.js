@@ -8,9 +8,10 @@ export default function LogoImage() {
 
     return (
         <Box sx={{
-            position:'absolute',
+            position:'fixed',
             top:0,
             left:0,
+            marginTop: 8,
             zIndex:'100',
             padding: 2,
 
