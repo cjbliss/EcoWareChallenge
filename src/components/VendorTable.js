@@ -45,95 +45,144 @@ export default function VendorTable({vendors, handleEdit, handleDelete, handleUp
         { field:'phone', headerName: 'Phone', flex:1.25, sortable: true, filterable: true },
         { field:'address', headerName: 'Address', flex:2, sortable: false, filterable: true},
         { field:'id', headerName: 'ID', flex:"auto", sortable: true, filterable: false},
+        // {
+        //     field:'tag',
+        //     headerName: 'Vendor Type',
+        //     flex:.82,
+        //     editable:true,
+        //     sortable: true,
+        //     filterable: true,
+        //     renderCell: (params) => {
+        //         const tag = params.row.tag;
+        //         if(tag === ''){
+        //             return (
+        //                 <Chip
+        //                     label="Select Vendor Type"
+        //                     sx={{
+        //                         bgcolor: '#515151',
+        //                         color: '#fff',
+        //                         alignItems: 'center',
+        //                         overflow: 'hidden',
+        //                         whiteSpace: 'nowrap',
+        //
+        //                     }}
+        //                     variant='filled'
+        //                 />
+        //             );
+        //         }
+        //         else {
+        //             return (
+        //                 <Chip
+        //                     label={tag}
+        //                     sx={{
+        //                         bgcolor: getTagColor(tag),
+        //                         color: '#fff',
+        //                         alignItems: 'center',
+        //                         overflow: 'hidden',
+        //                         whiteSpace: 'nowrap',
+        //
+        //                     }}
+        //                     variant='filled'
+        //                 />
+        //             );
+        //         }
+        //     },
+        //     renderEditCell: (params) => {
+        //         // const [selectedTag, setSelectedTag] = useState(params.value || TAG_OPTIONS[0]);
+        //         const handleChange = async (event) => {
+        //             const newTag = event.target.value;
+        //             params.api.setEditCellValue({id:params.id, field: 'tag', value:newTag}, event);
+        //
+        //             try {
+        //                 const response = await fetch(`/api/vendors/${params.id}`, {
+        //                     method: 'PUT',
+        //                     headers: {'Content-Type': 'application/json'},
+        //                     body: JSON.stringify({tag:newTag}),
+        //                 });
+        //                 if(!response.ok){
+        //                     console.error('Failed to update vendor tag');
+        //                 }
+        //             } catch(error) {
+        //                 console.error('Error updating vendor tag: ', error);
+        //             }
+        //         };
+        //         return (
+        //             <Select
+        //                 value={params.value || 'Select Tag'}
+        //                 onChange={handleChange}
+        //                 fullWidth
+        //                 variant="filled"
+        //                 size='small'
+        //                 >
+        //                 {TAG_OPTIONS.map((option)=>(
+        //                     <MenuItem key={option} value={option}>
+        //                         <Chip
+        //                             label={option}
+        //                             sx={{
+        //                                 bgcolor: getTagColor(option),
+        //                                 color: '#fff',
+        //                                 alignItems: 'center',
+        //                                 overflow: 'hidden',
+        //                                 whiteSpace: 'nowrap',
+        //                             }}
+        //                             variant='filled'
+        //                             />
+        //
+        //                     </MenuItem>
+        //                 ))}
+        //             </Select>
+        //         );
+        //     },
+        // },
         {
-            field:'tag',
+            field: 'tag',
             headerName: 'Vendor Type',
-            flex:.82,
-            editable:true,
+            flex: 0.82,
+            editable: true,
             sortable: true,
             filterable: true,
             renderCell: (params) => {
-                const tag = params.row.tag;
-                if(tag === ''){
-                    return (
-                        <Chip
-                            label="Select Vendor Type"
-                            sx={{
-                                bgcolor: '#515151',
-                                color: '#fff',
-                                alignItems: 'center',
-                                overflow: 'hidden',
-                                whiteSpace: 'nowrap',
-
-                            }}
-                            variant='filled'
-                        />
-                    );
-                }
-                else {
-                    return (
+                const tag = params.row.tag || 'Select Vendor Type'; // Default tag if empty
+                return (
+                    <Tooltip
+                        title={
+                            <Box>
+                                {TAG_OPTIONS.map((option) => (
+                                    <Chip
+                                        key={option}
+                                        label={option}
+                                        onClick={() => handleUpdateTags(params.row.id, option, 'edit')}
+                                        sx={{
+                                            bgcolor: getTagColor(option),
+                                            color: '#fff',
+                                            margin: '4px',
+                                            cursor: 'pointer',
+                                        }}
+                                    />
+                                ))}
+                            </Box>
+                        }
+                        arrow
+                        placement="top"
+                        interactive // Allows interaction with the tooltip content
+                    >
                         <Chip
                             label={tag}
                             sx={{
                                 bgcolor: getTagColor(tag),
                                 color: '#fff',
+                                cursor: 'pointer',
                                 alignItems: 'center',
                                 overflow: 'hidden',
                                 whiteSpace: 'nowrap',
-
                             }}
-                            variant='filled'
+                            variant="filled"
                         />
-                    );
-                }
-            },
-            renderEditCell: (params) => {
-                // const [selectedTag, setSelectedTag] = useState(params.value || TAG_OPTIONS[0]);
-                const handleChange = async (event) => {
-                    const newTag = event.target.value;
-                    params.api.setEditCellValue({id:params.id, field: 'tag', value:newTag}, event);
-
-                    try {
-                        const response = await fetch(`/api/vendors/${params.id}`, {
-                            method: 'PUT',
-                            headers: {'Content-Type': 'application/json'},
-                            body: JSON.stringify({tag:newTag}),
-                        });
-                        if(!response.ok){
-                            console.error('Failed to update vendor tag');
-                        }
-                    } catch(error) {
-                        console.error('Error updating vendor tag: ', error);
-                    }
-                };
-                return (
-                    <Select
-                        value={params.value || 'Select Tag'}
-                        onChange={handleChange}
-                        fullWidth
-                        variant="filled"
-                        size='small'
-                        >
-                        {TAG_OPTIONS.map((option)=>(
-                            <MenuItem key={option} value={option}>
-                                <Chip
-                                    label={option}
-                                    sx={{
-                                        bgcolor: getTagColor(option),
-                                        color: '#fff',
-                                        alignItems: 'center',
-                                        overflow: 'hidden',
-                                        whiteSpace: 'nowrap',
-                                    }}
-                                    variant='filled'
-                                    />
-
-                            </MenuItem>
-                        ))}
-                    </Select>
+                    </Tooltip>
                 );
             },
         },
+
         {
             field:'actions',
             headerName: 'Actions',

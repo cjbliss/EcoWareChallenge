@@ -60,7 +60,7 @@ export default function Home() {
       .then((data) => {
         const updatedData = data.map((vendor) => ({
           ...vendor,
-          tagd: Array.isArray(vendor.tags) ? vendor.tags : [],
+          tags: Array.isArray(vendor.tags) ? vendor.tags : [],
         }));
         setVendors(updatedData)
       });
@@ -174,35 +174,36 @@ export default function Home() {
     )
   })
 
-  const handleUpdateTags = (id, currentTag, action) => {
-    // Find the vendor by ID
-    const updatedVendors = [...filteredVendors];
-    const vendorIndex =  updatedVendors.findIndex((vendor) => vendor.id === id);
+    const handleUpdateTags = (id, newTag) => {
+        const updatedVendors = [...vendors];
+        const vendorIndex = updatedVendors.findIndex((vendor) => vendor.id === id);
 
-    if(vendorIndex === -1) return;
+        if (vendorIndex === -1) return; // If vendor not found, exit
 
-    const updatedTags = [...updatedVendors[vendorIndex].tags];
-    if(action === 'edit'){
-      const newTag = prompt('Enter new tag: ');
-      if(newTag && !updatedTags.includes(newTag)){
-        updatedTags.push(newTag);
-      }
-    }
-    else if (action === 'remove'){
-      const tagIndex = updatedTags.indexOf(currentTag);
-      if(tagIndex > -1){
-        updatedTags.splice(tagIndex, 1)
-      }
-    }
+        // Update the tag for the selected vendor
+        updatedVendors[vendorIndex].tag = newTag;
+        setVendors(updatedVendors);
 
-    updatedVendors[vendorIndex].tags = updatedTags;
-    setVendors(updatedVendors);
-  };
+        // Optionally update the backend
+        try {
+            fetch(`/api/vendors/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ tag: newTag }),
+            }).then((response) => {
+                if (!response.ok) {
+                    console.error('Failed to update vendor tag on the server');
+                }
+            });
+        } catch (error) {
+            console.error('Error updating vendor tag:', error);
+        }
+    };
 
   return (
     <Box sx={{minHeight:'100vh', position: 'relative', padding:0, margin:'0 auto', width:'75%',  }}>
      <Box
-         sx={{textAlign:'center', width:'100%'}}
+         sx={{textAlign:'center', width:'100%', marginTop: '20px'}}
          >
       <h1
           style={{
