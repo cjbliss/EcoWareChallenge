@@ -14,7 +14,7 @@ const theme = createTheme({
         },
     },
     typography: {
-        fontFamily: 'Catamaran, Arial, sans-serif', // Fallback to Arial if Dosis isn't loaded
+        fontFamily: 'Knewave, Catamaran, Arial, sans-serif', // Fallback to Arial if catamaran isn't loaded
     },
 });
 

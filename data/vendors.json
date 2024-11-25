@@ -4,152 +4,199 @@
     "name": "Global Tech",
     "contact": "Jane Smith",
     "email": "jane@globaltech.com",
-    "phone": "555-5678",
+    "phone": "(000) 000-0000",
     "address": "456 Oak Avenue, Metropolis",
-    "tag": ""
+    "tag": "Service",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 2,
     "name": "Tech Solutions",
     "contact": "John Doe",
     "email": "john@techsolutions.com",
-    "phone": "555-8765",
+    "phone": "(000) 000-0000",
     "address": "123 Elm Street, Rivertown",
-    "tag": ""
+    "tag": "Retailer",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 3,
     "name": "NextGen Electronics",
     "contact": "Alice Cooper",
     "email": "alice@nextgenelectronics.com",
-    "phone": "555-1122",
+    "phone": "(000) 000-0000",
     "address": "789 Pine Road, Silicon Valley",
-    "tag": ""
+    "tag": "Retailer",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 4,
     "name": "Innovative Systems",
     "contact": "Bob Green",
     "email": "bob@innovativesystems.com",
-    "phone": "555-3344",
+    "phone": "(000) 000-0000",
     "address": "321 Maple Avenue, Tech City",
-    "tag": ""
+    "tag": "Other",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 5,
     "name": "PowerSource Inc.",
     "contact": "Sophie Turner",
     "email": "sophie@powersource.com",
-    "phone": "555-5566",
+    "phone": "(000) 000-0000",
     "address": "654 Birch Street, Greenfield",
-    "tags": ""
+    "tag": "Other",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 6,
     "name": "Quantum Innovations",
     "contact": "Tom Harris",
     "email": "tom@quantuminnovations.com",
-    "phone": "555-7788",
+    "phone": "(000) 000-0000",
     "address": "159 Oak Boulevard, Newtown",
-    "tags": ""
+    "tag": "Independent",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 7,
     "name": "Digital Dynamics",
     "contact": "Emily Clark",
     "email": "emily@digitaldynamics.com",
-    "phone": "555-9900",
+    "phone": "(000) 000-0000",
     "address": "234 Cedar Lane, Highland Park",
-    "tag": "Service"
+    "tag": "Manufacturer",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 8,
     "name": "E-Tech Solutions",
     "contact": "David Leeds",
     "email": "david@etechsolutions.com",
-    "phone": "555-2233",
+    "phone": "(123) 456-7890",
     "address": "567 Maple Street, Lakeside",
-    "tag": ""
+    "tag": "Wholesaler",
+    "additionalInfo": "Here is some extra info about the vendor. Our contact is David Leeds. "
   },
   {
     "id": 9,
     "name": "Skyline Electronics",
     "contact": "Laura Williams",
     "email": "laura@skylineelectronics.com",
-    "phone": "555-4455",
+    "phone": "(000) 000-0000",
     "address": "890 Fir Avenue, Oceanview",
-    "tag": ""
+    "tag": "Other",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 10,
     "name": "TechBridge Systems",
     "contact": "Daniel White",
     "email": "daniel@techbridgesystems.com",
-    "phone": "555-6677",
+    "phone": "(000) 000-0000",
     "address": "678 Ash Drive, Sunset Hills",
-    "tag": ""
+    "tag": "Wholesaler",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 11,
     "name": "Fusion Electronics",
     "contact": "Rachel Adams",
     "email": "rachel@fusionelectronics.com",
-    "phone": "555-8899",
+    "phone": "(000) 000-0000",
     "address": "1010 Pine Lane, Riverview",
-    "tag": ""
+    "tag": "Wholesaler",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 12,
     "name": "FutureTech Corp.",
     "contact": "Chris Johnson",
     "email": "chris@futuretechcorp.com",
-    "phone": "555-1123",
+    "phone": "(781) 234-4721",
     "address": "213 Willow Road, Baytown",
-    "tag": "Service"
+    "tag": "Service",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 13,
     "name": "Advanced Circuits",
     "contact": "Grace Lee",
-    "email": "grace@advancedcircuits.com",
-    "phone": "555-3345",
+    "email": "gracelee@advancedcircuits.com",
+    "phone": "(000) 000-0000",
     "address": "432 Oak Boulevard, Forest Hills",
-    "tag": "Retailer"
+    "tag": "Retailer",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 14,
     "name": "TechPulse Solutions",
     "contact": "James Harris",
     "email": "james@techpulse.com",
-    "phone": "555-5567",
+    "phone": "(000) 000-0000",
     "address": "876 Elm Street, Lakeside",
-    "tag": ""
+    "tag": "Manufacturer",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "id": 15,
     "name": "Dynamic Electronics",
     "contact": "Sophia Davis",
     "email": "sophia@dynamicelectronics.com",
-    "phone": "555-7789",
+    "phone": "(871) 234-4721",
     "address": "345 Birch Road, Meadowbrook",
-    "tag": "Service"
+    "tag": "Service",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "name": "Toys R Us",
     "contact": "Bob Odenkirk",
     "email": "bo@gmail.com",
-    "phone": "234-4721",
+    "phone": "(000) 000-0000",
     "address": "40 Main St, Needham, MA",
     "id": 17,
-    "tag": ""
+    "tag": "Wholesaler",
+    "additionalInfo": "Here is some extra info about the vendor."
   },
   {
     "name": "Dave Matthews Band",
     "contact": "Dave Matthews",
-    "email": "dm@band.com",
-    "phone": "123-4556",
+    "email": "dksljflksdflkdsjf@mail.com",
+    "phone": "(781) 234-4723",
     "address": "165 Rugby Road, Charlottesville",
+    "tag": "Independent",
+    "id": 18,
+    "additionalInfo": "Here is some extra info about the vendor."
+  },
+  {
+    "name": "Tech vendor",
+    "contact": "tech mman ",
+    "email": "tman@gmail.com",
+    "phone": "(000) 000-0000",
+    "address": "fldkjlksjdf",
+    "tag": "Manufacturer",
+    "id": 19,
+    "additionalInfo": "Here is some extra info about the vendor."
+  },
+  {
+    "name": "Daves Hot Chicken",
+    "contact": "Dave Hot",
+    "email": "DHC@gmail.com",
+    "phone": "(617) 716-2724",
+    "address": "10 DHC way, Needham, MA",
     "tag": "Retailer",
-    "id": 18
+    "id": 20,
+    "additionalInfo": "Here is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendorHere is some extra info about the vendor."
+  },
+  {
+    "name": "Looney Tunes",
+    "contact": "Bugs Bunny",
+    "email": "bugs@acme.com",
+    "phone": "(999) 333-8848",
+    "address": "12 Tunes way, Acme acres, disneyland",
+    "tag": "Other",
+    "id": 21,
+    "additionalInfo": "Here is some extra info about the vendor."
   }
 ]
