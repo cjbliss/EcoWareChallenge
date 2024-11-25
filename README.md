@@ -8,6 +8,25 @@ Enhance the existing Vendor Management System built with Next.js and Material-UI
 - [Material-UI](https://mui.com/) - UI component library
 - [React](https://reactjs.org/) - JavaScript library
 
+## MY EDITS:
+### Visual:
+- Used MUI components to make the website look nice, but not subtract from the user's ability to read and navigate
+- Logo top left 
+- Background image consistent across all pages
+### Features:
+- Added sort and search for each component (via the top of the toolbar)
+- Added search to search through name, contact, email, phone, address, and ID fields (searchbar)
+- Added cancel buttons for add and edit vendor 
+- Pagination - option to have 10,25,or 50 vendors displayed (can change these options easily on my end if necessary)
+- Home page (current vendors) and about page
+- Vendor tags - googled different types of vendors, added ability to classify each vendor as one of those types in both the edit vendor page and through the homepage
+- Additional info section for each vendor
+- More info page for each vendor - can see the additional info here
+- Formatting for 10-digit phone numbers automatically maps to (xxx) xxx-xxxx
+- Format restrictions for email so that it has to follow x@x.x (actual email format)
+- All CRUD operations work as expected
+### Thank you!
+
 ## Task 1: Improve Responsiveness and Aesthetics
 ### Objective
 Enhance the visual design and ensure the application is fully responsive across various devices.
@@ -37,3 +56,4 @@ Incorporate a new feature that adds significant value to the Vendor Management S
 - Choose a Feature: Examples include vendor categorization, data export, etc.
 - Implementation: Use MUI components to build the feature, ensuring it aligns with existing design
 - Integration: Ensure the feature integrates smoothly without performance issues
+
